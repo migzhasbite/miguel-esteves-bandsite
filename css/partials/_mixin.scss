@@ -1,0 +1,134 @@
+@use "./typography" as *;
+@use "./colors" as *;
+@use "./variables" as *;
+
+//display mixin's for flex
+@mixin flex-dja($direction, $justify, $align) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+}
+@mixin flex-djawrap($direction, $justify, $align) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+	flex-wrap: wrap;
+}
+@mixin flex-djawrapg($direction, $justify, $align) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+	flex-wrap: wrap;
+	flex-grow: 1;
+}
+@mixin padding-margin($padding, $margin) {
+	padding: $padding;
+	margin: $margin;
+}
+
+@mixin bg-img--height-width($height, $width, $bg-size) {
+	height: $height;
+	width: $width;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: $bg-size;
+}
+@mixin pageheader {
+	@include desktop-text-style-1();
+}
+
+//Style guide specs
+//DESKTOP
+//PAGE HEADER
+@mixin desktop-text-style-1 {
+	font-size: 3.75rem;
+	font-weight: $font-weight--bold;
+	line-height: 4.25rem;
+}
+//SECTION HEADER
+@mixin desktop-text-style-2 {
+	font-size: 2.25rem;
+	font-weight: $font-weight--bold;
+	line-height: 2.75rem;
+}
+//SUBHEADER
+@mixin desktop-text-style-3 {
+	font-size: 1.5rem;
+	font-weight: $font-weight--demi;
+	line-height: 2rem;
+}
+//BODY COPY
+@mixin desktop-text-style-4 {
+	font-size: 0.875rem;
+	font-weight: $font-weight--regular;
+	line-height: 1.375rem;
+}
+//FOOTER COPY
+@mixin desktop-text-style-5 {
+	font-size: 0.875rem;
+	font-weight: $font-weight--regular;
+	line-height: 1.25rem;
+}
+//LABELS & BUTTONS
+@mixin desktop-text-style-6 {
+	font-size: 0.75rem;
+	font-weight: $font-weight--bold;
+	line-height: 1.25rem;
+}
+//MOBILE
+//PAGE HEADER
+@mixin mobile-text-style-1 {
+	font-size: 1.5rem;
+	font-weight: $font-weight--bold;
+	line-height: 2rem;
+}
+//SECTION HEADER
+@mixin mobile-text-style-2 {
+	font-size: 1.5rem;
+	font-weight: $font-weight--bold;
+	line-height: 1.375rem;
+}
+//SUBHEADER
+@mixin mobile-text-style-3 {
+	font-size: 0.875rem;
+	font-weight: $font-weight--demi;
+	line-height: 1.375rem;
+}
+//BODY COPY
+@mixin mobile-text-style-4 {
+	font-size: 0.8125rem;
+	font-weight: $font-weight--regular;
+	line-height: 1.125rem;
+}
+//FOOTER COPY
+@mixin mobile-text-style-5 {
+	font-size: 0.8125rem;
+	font-weight: $font-weight--regular;
+	line-height: 1.125rem;
+}
+//LABELS & BUTTONS
+@mixin mobile-text-style-6 {
+	font-size: 0.625rem;
+	font-weight: $font-weight--bold;
+	line-height: 1.25rem;
+}
+//different device specs
+@mixin mobile {
+	@media (max-width: $mobile--breakpoint) {
+		@content;
+	}
+}
+@mixin tablet {
+	@media (min-width: $tablet--breakpoint-min) and (max-width: $tablet--breakpoint-max) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (min-width: $desktop--breakpoint) {
+		@content;
+	}
+}

@@ -1,0 +1,287 @@
+//TODO change filename to bio.scss
+
+@use "./partials/colors" as *;
+@use "./partials/mixin" as *;
+@use "./partials/typography" as *;
+@use "./partials/variables" as *;
+* {
+	font-family: "Avenir Regular";
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body {
+	@include flex-dja(column, center, center);
+	@include desktop {
+		width: 100%;
+		margin: auto;
+	}
+	@include mobile {
+		width: 100%;
+		// margin: 36px;
+	}
+}
+.header {
+	position: sticky;
+	background-color: $color-bandsite-black;
+	@include flex-dja(row, flex-start, center);
+	padding: 1rem 2rem;
+	margin: auto;
+	width: 100%;
+	@include mobile {
+		@include flex-dja(column, center, center);
+		text-align: center;
+	}
+	& a {
+		color: $color-white;
+		text-decoration: none;
+	}
+}
+.navbar {
+	&--list {
+		@include flex-dja(row, center, center);
+		list-style: none;
+		padding: 1rem 0;
+		& > li {
+			padding: 0 3rem;
+			@include mobile {
+				padding: 0 1rem;
+			}
+		}
+	}
+	&--link {
+		color: $color-white;
+		// padding: 1.25rem;
+		text-decoration: none;
+		width: 10%;
+	}
+	&--current {
+		border-bottom: 0.1875rem $color-mercury solid;
+	}
+}
+.hero {
+	position: relative;
+	background-image: url(../assets/images/hero-bio.jpg);
+	width: 100%;
+	@include desktop {
+		@include bg-img--height-width(50vh, none, cover);
+	}
+	@include tablet {
+		@include bg-img--height-width(40vh, none, cover);
+	}
+	@include mobile {
+		@include bg-img--height-width(30vh, none, cover);
+	}
+	&__div {
+		position: absolute;
+		padding: 2.25rem;
+		height: 100%;
+		width: 100%;
+		background-color: $color-bandsite-black;
+		opacity: 50%;
+		@include flex-dja(row, flex-start, center);
+		@include mobile {
+			padding: 1rem;
+		}
+	}
+	&__heading {
+		@include desktop {
+			@include desktop-text-style-1;
+		}
+		@include mobile {
+			@include mobile-text-style-1;
+			text-align: center;
+		}
+		@include pageheader;
+		color: $color-white;
+	}
+}
+
+.musicians {
+	@include desktop {
+		padding: 0 2.25rem;
+	}
+	@include tablet {
+		padding: 0 2.25rem;
+	}
+	@include mobile {
+		padding: 0 1rem;
+	}
+	// position: relative;
+	&__heading {
+		@include desktop {
+			@include desktop-text-style-2;
+		}
+		@include tablet {
+			@include desktop-text-style-2;
+		}
+		@include mobile {
+			@include mobile-text-style-2;
+		}
+	}
+	&__div {
+		@include flex-dja(column, center, center);
+		@include mobile {
+			align-items: flex-start;
+		}
+		&--figure-caption {
+			@include flex-dja(column, flex-start, center);
+			width: 90%;
+			height: 35vh;
+		}
+		&--band-info {
+			@include flex-dja(column, center, center);
+			width: 75%;
+			@include mobile {
+				align-items: flex-start;
+			}
+		}
+		&--article {
+			@include flex-dja(row, flex-start, none);
+			column-count: 2;
+			width: 100%;
+		}
+		&--band {
+			@include flex-dja(column, center, center);
+			width: 100%;
+			height: 50vh;
+		}
+		&--notable-quote {
+			@include flex-djawrap(column, center, flex-start);
+			width: 75%;
+		}
+	}
+	&__text {
+		column-count: 2;
+	}
+	&__image {
+		background-image: url("../assets/images/band.jpg");
+		@include bg-img--height-width(100%, 100%, contain);
+
+		@include mobile {
+			background-position: left;
+		}
+	}
+}
+.photo-gallery {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 2.25rem;
+	@include mobile {
+		padding: 1rem;
+	}
+
+	&__heading {
+		@include desktop-text-style-2;
+		@include mobile {
+			@include mobile-text-style-2;
+		}
+	}
+	&__container {
+		@include flex-dja(row, center, center);
+		flex-wrap: wrap;
+		@include mobile {
+			padding: 1rem, 0;
+		}
+	}
+}
+.footer {
+	position: relative;
+	background-color: $color-bandsite-black;
+	height: 40vh;
+	width: 100%;
+	//per MDN resource, flex-shrink will allow header and footer to
+	//stick
+	flex-shrink: 0;
+	&__heading {
+		&--title {
+			padding: 2.25rem;
+			display: flex;
+			align-items: flex-start;
+		}
+		&--icons {
+			@include flex-dja(row, flex-start, center);
+			padding: 1.25rem;
+			& > img > a {
+				padding: 1.25rem;
+			}
+		}
+	}
+	&__container {
+		&--top {
+			@include flex-dja(row, flex-start, flex-start);
+		}
+	}
+}
+
+.image1 {
+	background-image: url("../assets/images/Photo-gallery-1.jpg");
+	@include bg-img--height-width(100%, 100%, contain);
+	@include padding-margin(1rem, 0);
+}
+.image2 {
+	background-image: url("../assets/images/Photo-gallery-2.jpg");
+	@include bg-img--height-width(100%, 100%, contain);
+
+	@include padding-margin(0rem, 1rem);
+}
+.image3 {
+	background-image: url("../assets/images/Photo-gallery-3.jpg");
+	@include bg-img--height-width(100%, 100%, contain);
+	@include padding-margin(0rem, 1rem);
+}
+.image4 {
+	background-image: url("../assets/images/Photo-gallery-4.jpg");
+	@include bg-img--height-width(20vh, 20vw, contain);
+	@include padding-margin(0rem, 1rem);
+}
+.image5 {
+	background-image: url("../assets/images/Photo-gallery-5.jpg");
+	@include bg-img--height-width(20vh, 20vw, contain);
+	@include padding-margin(0rem, 1rem);
+}
+.image6 {
+	background-image: url("../assets/images/Photo-gallery-6.jpg");
+	@include bg-img--height-width(20vh, 20vw, contain);
+	@include padding-margin(0rem, 1rem);
+}
+.image7 {
+	background-image: url("../assets/images/Photo-gallery-7.jpg");
+	@include bg-img--height-width(20vh, 20vw, contain);
+	@include padding-margin(0rem, 1rem);
+}
+.image8 {
+	background-image: url("../assets/images/Photo-gallery-8.jpg");
+	@include bg-img--height-width(20vh, 20vw, contain);
+	@include padding-margin(0rem, 1rem);
+}
+.image9 {
+	background-image: url("../assets/images/Photo-gallery-9.jpg");
+	@include bg-img--height-width(20vh, 20vw, contain);
+	@include padding-margin(0rem, 1rem);
+}
+// .logo {
+// 	@include desktop {
+// 		@include desktop-text-style-1;
+// 	}
+// 	@include tablet {
+// 		@include desktop-text-style-1;
+// 	}
+// 	@include mobile {
+// 		@include mobile-text-style-1;
+// 	}
+// }
+
+.logo {
+	text-transform: uppercase;
+	@include mobile {
+		@include mobile-text-style-1;
+	}
+	@include desktop {
+		@include desktop-text-style-1;
+	}
+	@include tablet {
+		@include desktop-text-style-1;
+	}
+}
