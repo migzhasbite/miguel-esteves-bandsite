@@ -29,13 +29,27 @@
 	margin: $margin;
 }
 
-@mixin bg-img--height-width($height, $width, $bg-size) {
-	height: $height;
-	width: $width;
+@mixin bg-img--c-min-max-height() {
+	min-height: 35vh;
+	max-height: 100vh;
+	width: 100%;
 	background-position: center;
 	background-repeat: no-repeat;
-	background-size: $bg-size;
+	background-size: contain;
+	margin-bottom: 1rem;
+	padding: 0;
 }
+@mixin bg-img--l-min-max-height() {
+	min-height: 35vh;
+	max-height: 100vh;
+	width: 100%;
+	background-position: left;
+	background-repeat: no-repeat;
+	background-size: contain;
+	margin-bottom: 1rem;
+	padding: 0;
+}
+
 @mixin pageheader {
 	@include desktop-text-style-1();
 }
@@ -117,7 +131,7 @@
 }
 //different device specs
 @mixin mobile {
-	@media (max-width: $mobile--breakpoint) {
+	@media screen and (max-width: $mobile--breakpoint) {
 		@content;
 	}
 }

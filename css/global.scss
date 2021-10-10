@@ -14,49 +14,87 @@ body {
 	@include flex-dja(column, center, center);
 	@include desktop {
 		width: 100%;
-		margin: auto;
+		// margin: auto;
 	}
 	@include mobile {
-		width: 100%;
+		// width: 100%;
 		// margin: 36px;
 	}
 }
 .header {
-	position: sticky;
+	color: $color-white;
 	background-color: $color-bandsite-black;
-	@include flex-dja(row, flex-start, center);
-	padding: 1rem 2rem;
-	margin: auto;
 	width: 100%;
 	@include mobile {
 		@include flex-dja(column, center, center);
+		// margin: auto;
 		text-align: center;
 	}
+	@include tablet {
+		@include flex-dja(row, flex-start, center);
+		// padding-left: 1rem;
+		// margin: auto;
+	}
+	@include desktop {
+		@include flex-dja(row, flex-start, center);
+		// padding-left: 2.25rem;
+		// margin: auto;
+	}
+
 	& a {
 		color: $color-white;
 		text-decoration: none;
+		// // transition: width 0.3s ease 0s, left 0.3s ease 0s;
 	}
 }
 .navbar {
+	width: 100%;
+
 	&--list {
-		@include flex-dja(row, center, center);
+		@include flex-dja(row, flex-start, center);
 		list-style: none;
-		padding: 1rem 0;
+		// padding-top: 1rem;
+		@include tablet {
+			// padding: 1rem;
+		}
+		@include desktop {
+			// padding: 1rem;
+		}
+		// width: 100%;
 		& > li {
-			padding: 0 3rem;
 			@include mobile {
-				padding: 0 1rem;
+				width: 50%;
+				// padding-bottom: 1rem;
+			}
+			@include tablet {
+				// padding: 0 2rem;
+			}
+			@include desktop {
+				// padding: 2.25rem;
+			}
+			&:hover {
+				border-bottom: 0.1875rem $color-mercury solid;
 			}
 		}
 	}
 	&--link {
 		color: $color-white;
 		// padding: 1.25rem;
-		text-decoration: none;
-		width: 10%;
+		// text-decoration: none;
+		width: 100%;
+		// margin: 0 1rem;
+		// padding: 0.8rem 0;
+		// border-bottom: 0.1875rem $color-mercury solid;
+
+		//TODO hover effect
 	}
 	&--current {
-		border-bottom: 0.1875rem $color-mercury solid;
+		@include mobile {
+			border-bottom: 0.1875rem $color-mercury solid;
+			width: auto;
+			// padding: 1rem 0rem;
+			// margin: 0 1rem;
+		}
 	}
 }
 .hero {
@@ -64,33 +102,55 @@ body {
 	background-image: url(../assets/images/hero-bio.jpg);
 	width: 100%;
 	@include desktop {
-		@include bg-img--height-width(50vh, none, cover);
+		// @include bg-img--c-height-width(50vh, none, cover);
+		height: 50vh;
+		background-position: left;
+		background-repeat: no-repeat;
+		background-size: cover;
 	}
 	@include tablet {
-		@include bg-img--height-width(40vh, none, cover);
+		// @include bg-img--c-height-width(40vh, none, cover);
+		height: 40vh;
+		background-position: left;
+		background-repeat: no-repeat;
+		background-size: cover;
 	}
 	@include mobile {
-		@include bg-img--height-width(30vh, none, cover);
+		// @include bg-img--c-height-width(11.5rem, none, cover);
+		height: 11.5rem;
+		background-position: left;
+		background-repeat: no-repeat;
+		background-size: cover;
 	}
 	&__div {
 		position: absolute;
-		padding: 2.25rem;
+		// padding: 2.25rem;
 		height: 100%;
 		width: 100%;
 		background-color: $color-bandsite-black;
 		opacity: 50%;
+		z-index: 1;
 		@include flex-dja(row, flex-start, center);
 		@include mobile {
-			padding: 1rem;
+			// padding: 1rem;
 		}
 	}
 	&__heading {
+		bottom: 50%;
+		z-index: 2;
+		// padding: 1rem;
+		position: absolute;
 		@include desktop {
 			@include desktop-text-style-1;
+			// padding: 2.25rem;
 		}
 		@include mobile {
 			@include mobile-text-style-1;
-			text-align: center;
+			// padding: 1rem;
+		}
+		@include tablet {
+			@include desktop-text-style-1;
+			// padding: 2.25rem;
 		}
 		@include pageheader;
 		color: $color-white;
@@ -98,48 +158,50 @@ body {
 }
 
 .musicians {
+	width: 100%;
+	height: 100%;
 	@include desktop {
-		padding: 0 2.25rem;
+		// padding: 0 2.25rem;
 	}
 	@include tablet {
-		padding: 0 2.25rem;
+		// padding: 0 2.25rem;
 	}
 	@include mobile {
-		padding: 0 1rem;
+		// padding: 0 0.5rem;
 	}
-	// position: relative;
 	&__heading {
 		@include desktop {
 			@include desktop-text-style-2;
+			width: 100%;
 		}
 		@include tablet {
 			@include desktop-text-style-2;
+			width: 100%;
 		}
 		@include mobile {
 			@include mobile-text-style-2;
+			// padding: 1rem;
 		}
 	}
 	&__div {
-		@include flex-dja(column, center, center);
-		@include mobile {
-			align-items: flex-start;
-		}
-		&--figure-caption {
-			@include flex-dja(column, flex-start, center);
-			width: 90%;
-			height: 35vh;
-		}
 		&--band-info {
-			@include flex-dja(column, center, center);
-			width: 75%;
+			@include flex-dja(column, center, flex-start);
 			@include mobile {
-				align-items: flex-start;
+				// margin: 1rem 0;
+			}
+			& > h2,
+			& > p {
+				@include mobile {
+					// margin: 1rem;
+				}
 			}
 		}
 		&--article {
-			@include flex-dja(row, flex-start, none);
 			column-count: 2;
-			width: 100%;
+			@include mobile {
+				column-count: 1;
+				// margin: 1rem;
+			}
 		}
 		&--band {
 			@include flex-dja(column, center, center);
@@ -148,140 +210,189 @@ body {
 		}
 		&--notable-quote {
 			@include flex-djawrap(column, center, flex-start);
-			width: 75%;
+			@include mobile {
+				// margin: 1rem;
+			}
 		}
 	}
 	&__text {
 		column-count: 2;
 	}
-	&__image {
-		background-image: url("../assets/images/band.jpg");
-		@include bg-img--height-width(100%, 100%, contain);
-
-		@include mobile {
-			background-position: left;
-		}
-	}
 }
 .photo-gallery {
+	// @include flex-dja(column, flex-start, none);
+	background-color: $color-alabaster;
 	position: relative;
 	width: 100%;
-	height: 100%;
-	padding: 2.25rem;
+	height: fit-content;
+
 	@include mobile {
-		padding: 1rem;
+		// padding: 0.5rem;
+		// height: 50%;
+	}
+	@include tablet {
+		// flex-wrap: wrap;
+		// padding: 0 2.25rem;
+		// height: 60%;
+		// & > div {
+		// 	display: flex;
+		// 	flex-wrap: wrap;
+		// 	height: 120px;
+		// 	width: 300px;
+		// }
+	}
+	@include desktop {
+		// padding: 0 2.25rem;
+		// flex-wrap: wrap;
 	}
 
 	&__heading {
 		@include desktop-text-style-2;
+		// padding: 2.25rem 0;
 		@include mobile {
 			@include mobile-text-style-2;
+			// margin: 1rem 0;
+		}
+		@include tablet {
+			// padding: 2.25rem 0;
 		}
 	}
 	&__container {
-		@include flex-dja(row, center, center);
-		flex-wrap: wrap;
+		@include flex-dja(row, space-between, center);
 		@include mobile {
-			padding: 1rem, 0;
+			@include flex-dja(column, center, center);
+			// padding: 1rem, 0;
+			flex-wrap: nowrap;
+		}
+		& > div {
+			width: 28vw;
+		}
+
+		@include tablet {
+			flex-wrap: wrap;
+			width: 100%;
 		}
 	}
 }
+
 .footer {
 	position: relative;
+	color: $color-white;
 	background-color: $color-bandsite-black;
-	height: 40vh;
 	width: 100%;
+	height: auto;
+	// @include flex-dja(row, flex-start, none);
+
 	//per MDN resource, flex-shrink will allow header and footer to
 	//stick
-	flex-shrink: 0;
+	// flex-shrink: 0;
 	&__heading {
 		&--title {
-			padding: 2.25rem;
-			display: flex;
+			// width: 100%;
+			@include desktop-text-style-2;
+			@include mobile {
+				@include mobile-text-style-2;
+			}
+			// padding: 1rem;
+			// display: flex;
 			align-items: flex-start;
 		}
 		&--icons {
+			width: 100%;
+			@include mobile {
+			}
 			@include flex-dja(row, flex-start, center);
-			padding: 1.25rem;
-			& > img > a {
-				padding: 1.25rem;
+			// padding: 1.25rem;
+			& div {
+				width: 100%;
+				display: flex;
+				// margin-right: 2rem;
+				height: 2rem;
+			}
+			& div:nth-child(2) {
+				justify-content: flex-end;
 			}
 		}
 	}
 	&__container {
 		&--top {
+			@include flex-dja(row, none, none);
+			@include mobile {
+				@include flex-dja(row, flex-start, flex-start);
+				& > div:nth-child(2) {
+					display: none;
+				}
+			}
+		}
+		&--middle {
+			// margin: 1rem;
 			@include flex-dja(row, flex-start, flex-start);
+			@include mobile {
+				@include flex-dja(column, flex-start, flex-start);
+			}
+		}
+		&--bottom {
+			// margin: 6rem 1rem 1rem 1rem;
+			& > img {
+				@include tablet {
+					display: none;
+				}
+				@include desktop {
+					display: none;
+				}
+				// padding-top: 1rem;
+			}
+			// & > img {
+			// width: 17vh;
+			// }
+		}
+	}
+	&--contact-info {
+		@include mobile {
+			@include flex-dja(column, none, none);
+			& > h2,
+			& > h3 {
+				// margin: 1rem;
+			}
+		}
+		@include tablet {
+			@include flex-dja(column, none, none);
+			& > h2,
+			& > h3 {
+				// margin: 1rem;
+			}
 		}
 	}
 }
 
-.image1 {
-	background-image: url("../assets/images/Photo-gallery-1.jpg");
-	@include bg-img--height-width(100%, 100%, contain);
-	@include padding-margin(1rem, 0);
-}
-.image2 {
-	background-image: url("../assets/images/Photo-gallery-2.jpg");
-	@include bg-img--height-width(100%, 100%, contain);
-
-	@include padding-margin(0rem, 1rem);
-}
-.image3 {
-	background-image: url("../assets/images/Photo-gallery-3.jpg");
-	@include bg-img--height-width(100%, 100%, contain);
-	@include padding-margin(0rem, 1rem);
-}
-.image4 {
-	background-image: url("../assets/images/Photo-gallery-4.jpg");
-	@include bg-img--height-width(20vh, 20vw, contain);
-	@include padding-margin(0rem, 1rem);
-}
-.image5 {
-	background-image: url("../assets/images/Photo-gallery-5.jpg");
-	@include bg-img--height-width(20vh, 20vw, contain);
-	@include padding-margin(0rem, 1rem);
-}
-.image6 {
-	background-image: url("../assets/images/Photo-gallery-6.jpg");
-	@include bg-img--height-width(20vh, 20vw, contain);
-	@include padding-margin(0rem, 1rem);
-}
-.image7 {
-	background-image: url("../assets/images/Photo-gallery-7.jpg");
-	@include bg-img--height-width(20vh, 20vw, contain);
-	@include padding-margin(0rem, 1rem);
-}
-.image8 {
-	background-image: url("../assets/images/Photo-gallery-8.jpg");
-	@include bg-img--height-width(20vh, 20vw, contain);
-	@include padding-margin(0rem, 1rem);
-}
-.image9 {
-	background-image: url("../assets/images/Photo-gallery-9.jpg");
-	@include bg-img--height-width(20vh, 20vw, contain);
-	@include padding-margin(0rem, 1rem);
-}
-// .logo {
-// 	@include desktop {
-// 		@include desktop-text-style-1;
-// 	}
-// 	@include tablet {
-// 		@include desktop-text-style-1;
-// 	}
-// 	@include mobile {
-// 		@include mobile-text-style-1;
-// 	}
-// }
-
 .logo {
-	text-transform: uppercase;
 	@include mobile {
-		@include mobile-text-style-1;
-	}
-	@include desktop {
-		@include desktop-text-style-1;
+		// margin-top: 1rem;
+		height: 20px;
+		width: 120px;
 	}
 	@include tablet {
-		@include desktop-text-style-1;
+		// height: 1.25rem;
+		width: 7.5rem;
+		// margin: 1rem;
+	}
+	@include desktop {
+		// margin: 1rem;
+		height: 1.25rem;
+		width: 7.5rem;
+	}
+}
+.image {
+	width: 100%;
+	height: auto;
+	// padding: 0;
+	@include desktop {
+		// margin: 1rem;
+	}
+	@include tablet {
+		// margin: 1rem;
+	}
+	@include mobile {
+		// margin: 1rem;
 	}
 }
