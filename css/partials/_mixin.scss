@@ -24,111 +24,9 @@
 	flex-wrap: wrap;
 	flex-grow: 1;
 }
-@mixin padding-margin($padding, $margin) {
-	padding: $padding;
-	margin: $margin;
-}
-
-@mixin bg-img--c-min-max-height() {
-	min-height: 35vh;
-	max-height: 100vh;
-	width: 100%;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	margin-bottom: 1rem;
-	padding: 0;
-}
-@mixin bg-img--l-min-max-height() {
-	min-height: 35vh;
-	max-height: 100vh;
-	width: 100%;
-	background-position: left;
-	background-repeat: no-repeat;
-	background-size: contain;
-	margin-bottom: 1rem;
-	padding: 0;
-}
-
-@mixin pageheader {
-	@include desktop-text-style-1();
-}
 
 //Style guide specs
-//DESKTOP
-//PAGE HEADER
-@mixin desktop-text-style-1 {
-	font-size: 3.75rem;
-	font-weight: $font-weight--bold;
-	line-height: 4.25rem;
-}
-//SECTION HEADER
-@mixin desktop-text-style-2 {
-	font-size: 2.25rem;
-	font-weight: $font-weight--bold;
-	line-height: 2.75rem;
-}
-//SUBHEADER
-@mixin desktop-text-style-3 {
-	font-size: 1.5rem;
-	font-weight: $font-weight--demi;
-	line-height: 2rem;
-}
-//BODY COPY
-@mixin desktop-text-style-4 {
-	font-size: 0.875rem;
-	font-weight: $font-weight--regular;
-	line-height: 1.375rem;
-}
-//FOOTER COPY
-@mixin desktop-text-style-5 {
-	font-size: 0.875rem;
-	font-weight: $font-weight--regular;
-	line-height: 1.25rem;
-}
-//LABELS & BUTTONS
-@mixin desktop-text-style-6 {
-	font-size: 0.75rem;
-	font-weight: $font-weight--bold;
-	line-height: 1.25rem;
-}
-//MOBILE
-//PAGE HEADER
-@mixin mobile-text-style-1 {
-	font-size: 1.5rem;
-	font-weight: $font-weight--bold;
-	line-height: 2rem;
-}
-//SECTION HEADER
-@mixin mobile-text-style-2 {
-	font-size: 1.5rem;
-	font-weight: $font-weight--bold;
-	line-height: 1.375rem;
-}
-//SUBHEADER
-@mixin mobile-text-style-3 {
-	font-size: 0.875rem;
-	font-weight: $font-weight--demi;
-	line-height: 1.375rem;
-}
-//BODY COPY
-@mixin mobile-text-style-4 {
-	font-size: 0.8125rem;
-	font-weight: $font-weight--regular;
-	line-height: 1.125rem;
-}
-//FOOTER COPY
-@mixin mobile-text-style-5 {
-	font-size: 0.8125rem;
-	font-weight: $font-weight--regular;
-	line-height: 1.125rem;
-}
-//LABELS & BUTTONS
-@mixin mobile-text-style-6 {
-	font-size: 0.625rem;
-	font-weight: $font-weight--bold;
-	line-height: 1.25rem;
-}
+
 //different device specs
 @mixin mobile {
 	@media screen and (max-width: $mobile--breakpoint) {
@@ -136,13 +34,13 @@
 	}
 }
 @mixin tablet {
-	@media (min-width: $tablet--breakpoint-min) and (max-width: $tablet--breakpoint-max) {
+	@media screen and (min-width: $tablet--breakpoint-min) and (max-width: $tablet--breakpoint-max) {
 		@content;
 	}
 }
 
 @mixin desktop {
-	@media (min-width: $desktop--breakpoint) {
+	@media screen and (min-width: $desktop--breakpoint) {
 		@content;
 	}
 }

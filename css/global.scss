@@ -4,335 +4,344 @@
 @use "./partials/mixin" as *;
 @use "./partials/typography" as *;
 @use "./partials/variables" as *;
+// @use "./partials/keyframes" as *;
 * {
-	font-family: "Avenir Regular";
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
-}
-body {
-	@include flex-dja(column, center, center);
-	@include desktop {
-		width: 100%;
-		// margin: auto;
-	}
-	@include mobile {
-		// width: 100%;
-		// margin: 36px;
-	}
 }
 .header {
 	color: $color-white;
 	background-color: $color-bandsite-black;
 	width: 100%;
+	border-bottom: 1px solid $color-mercury;
 	@include mobile {
 		@include flex-dja(column, center, center);
-		// margin: auto;
+		padding-top: 1rem;
 		text-align: center;
 	}
 	@include tablet {
 		@include flex-dja(row, flex-start, center);
-		// padding-left: 1rem;
-		// margin: auto;
+		padding: 3rem 2.25rem 2.25rem 2.25rem;
 	}
 	@include desktop {
 		@include flex-dja(row, flex-start, center);
-		// padding-left: 2.25rem;
-		// margin: auto;
+		padding: 3rem 2.25rem 2.25rem 2.25rem;
 	}
 
 	& a {
 		color: $color-white;
 		text-decoration: none;
-		// // transition: width 0.3s ease 0s, left 0.3s ease 0s;
 	}
 }
 .navbar {
 	width: 100%;
-
 	&--list {
 		@include flex-dja(row, flex-start, center);
 		list-style: none;
-		// padding-top: 1rem;
 		@include tablet {
-			// padding: 1rem;
+			padding: 0 2.25rem;
 		}
 		@include desktop {
-			// padding: 1rem;
+			padding: 2.25rem;
 		}
-		// width: 100%;
 		& > li {
 			@include mobile {
-				width: 50%;
-				// padding-bottom: 1rem;
+				width: 100%;
+				padding-bottom: 1rem;
+				@include mobile-text-style-6;
+				&:active {
+					@include mobile-text-style-6;
+					width: 100%;
+					padding-bottom: 1rem;
+					border-bottom: 0.1875rem $color-mercury solid;
+				}
+				&:hover {
+					@include mobile-text-style-6;
+					width: 100%;
+					color: $color-white;
+					text-decoration: none;
+					padding-bottom: 1rem;
+					border-bottom: 0.1875rem $color-mercury solid;
+				}
 			}
 			@include tablet {
-				// padding: 0 2rem;
+				padding: 0 2.25rem;
+				@include desktop-text-style-6;
+				&:active {
+					@include desktop-text-style-6;
+					padding-bottom: 2.25rem;
+					margin-bottom: -2.25rem;
+					border-bottom: 0.1875rem $color-mercury solid;
+				}
+				&:hover {
+					@include desktop-text-style-6;
+					color: $color-white;
+					text-decoration: none;
+					padding-bottom: 2.25rem;
+					margin-bottom: -2.25rem;
+					border-bottom: 0.1875rem $color-mercury solid;
+				}
 			}
 			@include desktop {
-				// padding: 2.25rem;
-			}
-			&:hover {
-				border-bottom: 0.1875rem $color-mercury solid;
-			}
-		}
-	}
-	&--link {
-		color: $color-white;
-		// padding: 1.25rem;
-		// text-decoration: none;
-		width: 100%;
-		// margin: 0 1rem;
-		// padding: 0.8rem 0;
-		// border-bottom: 0.1875rem $color-mercury solid;
+				@include desktop-text-style-6;
+				padding: 0 2.25rem;
 
-		//TODO hover effect
-	}
-	&--current {
-		@include mobile {
-			border-bottom: 0.1875rem $color-mercury solid;
-			width: auto;
-			// padding: 1rem 0rem;
-			// margin: 0 1rem;
+				&:active {
+					@include desktop-text-style-6;
+					padding-bottom: 4.25rem;
+					margin-bottom: -4.25rem;
+					border-bottom: 0.1875rem $color-mercury solid;
+				}
+				&:hover {
+					@include desktop-text-style-6;
+					color: $color-white;
+					text-decoration: none;
+					padding-bottom: 4.25rem;
+					margin-bottom: -4.25rem;
+					border-bottom: 0.1875rem $color-mercury solid;
+				}
+			}
 		}
 	}
 }
 .hero {
+	border-bottom: 1px solid $color-mercury;
 	position: relative;
 	background-image: url(../assets/images/hero-bio.jpg);
 	width: 100%;
-	@include desktop {
-		// @include bg-img--c-height-width(50vh, none, cover);
-		height: 50vh;
+	z-index: 0;
+	@include mobile {
+		height: 30vh;
 		background-position: left;
 		background-repeat: no-repeat;
 		background-size: cover;
 	}
 	@include tablet {
-		// @include bg-img--c-height-width(40vh, none, cover);
 		height: 40vh;
 		background-position: left;
 		background-repeat: no-repeat;
 		background-size: cover;
 	}
-	@include mobile {
-		// @include bg-img--c-height-width(11.5rem, none, cover);
-		height: 11.5rem;
+	@include desktop {
+		height: 50vh;
 		background-position: left;
 		background-repeat: no-repeat;
 		background-size: cover;
 	}
-	&__div {
-		position: absolute;
-		// padding: 2.25rem;
-		height: 100%;
-		width: 100%;
-		background-color: $color-bandsite-black;
-		opacity: 50%;
-		z-index: 1;
-		@include flex-dja(row, flex-start, center);
-		@include mobile {
-			// padding: 1rem;
-		}
-	}
 	&__heading {
-		bottom: 50%;
-		z-index: 2;
-		// padding: 1rem;
 		position: absolute;
-		@include desktop {
-			@include desktop-text-style-1;
-			// padding: 2.25rem;
-		}
+		color: $color-white;
+		z-index: 2;
+		bottom: 50%;
 		@include mobile {
 			@include mobile-text-style-1;
-			// padding: 1rem;
+			padding: 1rem;
 		}
 		@include tablet {
 			@include desktop-text-style-1;
-			// padding: 2.25rem;
+			padding: 2.25rem;
 		}
-		@include pageheader;
-		color: $color-white;
+		@include desktop {
+			@include desktop-text-style-1;
+			padding: 2.25rem;
+		}
+	}
+	&__overlay {
+		position: relative;
+		background-color: $color-bandsite-black;
+		opacity: 50%;
+		z-index: 1;
+		width: 100%;
+		height: 100%;
 	}
 }
 
 .musicians {
+	border-bottom: 1px solid $color-mercury;
 	width: 100%;
-	height: 100%;
 	@include desktop {
-		// padding: 0 2.25rem;
+		padding: 0 2.25rem;
 	}
 	@include tablet {
-		// padding: 0 2.25rem;
+		padding: 0 2.25rem;
 	}
 	@include mobile {
-		// padding: 0 0.5rem;
+		padding: 0 0.5rem;
 	}
 	&__heading {
-		@include desktop {
-			@include desktop-text-style-2;
-			width: 100%;
+		@include mobile {
+			@include mobile-text-style-2;
+			padding: 1.5rem 1rem 1rem 1rem;
 		}
 		@include tablet {
 			@include desktop-text-style-2;
-			width: 100%;
+			padding: 3rem 2.25rem 2.25rem 2.25rem;
 		}
-		@include mobile {
-			@include mobile-text-style-2;
-			// padding: 1rem;
+		@include desktop {
+			@include desktop-text-style-2;
+			padding: 3rem 2.25rem 2.25rem 2.25rem;
 		}
 	}
 	&__div {
-		&--band-info {
-			@include flex-dja(column, center, flex-start);
-			@include mobile {
-				// margin: 1rem 0;
-			}
-			& > h2,
-			& > p {
-				@include mobile {
-					// margin: 1rem;
-				}
-			}
+		@include mobile {
+			padding: 1rem;
+			padding-top: 0;
 		}
-		&--article {
-			column-count: 2;
-			@include mobile {
-				column-count: 1;
-				// margin: 1rem;
-			}
+		@include tablet {
+			padding: 2.25rem;
+			padding-top: 0;
 		}
-		&--band {
-			@include flex-dja(column, center, center);
-			width: 100%;
-			height: 50vh;
+		@include desktop {
+			padding: 2.25rem;
+			padding-top: 0;
 		}
 		&--notable-quote {
 			@include flex-djawrap(column, center, flex-start);
-			@include mobile {
+			& h2 {
+				@include mobile {
+					@include mobile-text-style-3;
+				}
 				// margin: 1rem;
+				@include tablet {
+					margin: 0 2.25rem;
+					padding: 2.25rem 0;
+					padding-bottom: 0.5rem;
+					@include desktop-text-style-3;
+				}
+				@include desktop {
+					margin: 0 2.25rem;
+					padding: 2.25rem 0;
+					padding-bottom: 0.5rem;
+					@include desktop-text-style-3;
+				}
+			}
+			& h3 {
+				@include mobile {
+					@include mobile-text-style-4;
+				}
+				@include tablet {
+					margin: 0 2.25rem;
+					padding-bottom: 2.25rem;
+					@include desktop-text-style-4;
+				}
+				@include desktop {
+					margin: 0 2.25rem;
+					padding-bottom: 2.25rem;
+					@include desktop-text-style-4;
+				}
+			}
+		}
+		&--band-info {
+			margin: 0 2.25rem;
+
+			@include flex-dja(column, center, flex-start);
+			& h2 {
+				padding-bottom: 2rem;
+				@include desktop-text-style-3;
+			}
+			& p {
+				column-count: 2;
+				@include desktop-text-style-4;
+			}
+			@include mobile {
+				margin: 0;
+				padding: 1rem 0;
+				& h2 {
+					padding-bottom: 1rem;
+					@include mobile-text-style-3;
+				}
+				& p {
+					column-count: 1;
+					padding-bottom: 1rem;
+					@include mobile-text-style-4;
+				}
 			}
 		}
 	}
-	&__text {
-		column-count: 2;
-	}
 }
 .photo-gallery {
-	// @include flex-dja(column, flex-start, none);
-	background-color: $color-alabaster;
+	border-bottom: 1px solid $color-mercury;
 	position: relative;
+	background-color: $color-alabaster;
 	width: 100%;
-	height: fit-content;
-
 	@include mobile {
-		// padding: 0.5rem;
-		// height: 50%;
+		padding: 1.5rem 1rem;
 	}
 	@include tablet {
-		// flex-wrap: wrap;
-		// padding: 0 2.25rem;
-		// height: 60%;
-		// & > div {
-		// 	display: flex;
-		// 	flex-wrap: wrap;
-		// 	height: 120px;
-		// 	width: 300px;
-		// }
+		padding: 3rem 2.25rem;
 	}
 	@include desktop {
-		// padding: 0 2.25rem;
-		// flex-wrap: wrap;
+		padding: 3rem 2.25rem;
 	}
-
 	&__heading {
-		@include desktop-text-style-2;
-		// padding: 2.25rem 0;
 		@include mobile {
 			@include mobile-text-style-2;
-			// margin: 1rem 0;
+			padding: 1rem 0;
 		}
-		@include tablet {
-			// padding: 2.25rem 0;
-		}
+		@include desktop-text-style-2;
+		padding-bottom: 2.25rem;
 	}
 	&__container {
 		@include flex-dja(row, space-between, center);
+		flex-wrap: wrap;
 		@include mobile {
 			@include flex-dja(column, center, center);
-			// padding: 1rem, 0;
 			flex-wrap: nowrap;
 		}
-		& > div {
-			width: 28vw;
-		}
-
-		@include tablet {
+		& img {
+			display: flex;
 			flex-wrap: wrap;
-			width: 100%;
+			width: 28vw;
+			padding: 0;
+			padding-bottom: 1.5rem;
 		}
 	}
 }
-
 .footer {
+	border-bottom: 1px solid $color-mercury;
 	position: relative;
 	color: $color-white;
 	background-color: $color-bandsite-black;
 	width: 100%;
-	height: auto;
-	// @include flex-dja(row, flex-start, none);
-
-	//per MDN resource, flex-shrink will allow header and footer to
-	//stick
-	// flex-shrink: 0;
-	&__heading {
-		&--title {
-			// width: 100%;
-			@include desktop-text-style-2;
-			@include mobile {
-				@include mobile-text-style-2;
-			}
-			// padding: 1rem;
-			// display: flex;
-			align-items: flex-start;
-		}
-		&--icons {
-			width: 100%;
-			@include mobile {
-			}
-			@include flex-dja(row, flex-start, center);
-			// padding: 1.25rem;
-			& div {
-				width: 100%;
-				display: flex;
-				// margin-right: 2rem;
-				height: 2rem;
-			}
-			& div:nth-child(2) {
-				justify-content: flex-end;
-			}
-		}
-	}
 	&__container {
 		&--top {
-			@include flex-dja(row, none, none);
 			@include mobile {
-				@include flex-dja(row, flex-start, flex-start);
-				& > div:nth-child(2) {
-					display: none;
+				padding: 1.5rem 1rem;
+				@include flex-dja(column, flex-start, flex-start);
+			}
+			@include tablet {
+				padding: 3rem 2.25rem 2.25rem 2.25rem;
+				@include flex-dja(row, none, flex-start);
+				& div {
+					align-self: center;
+				}
+			}
+			@include desktop {
+				padding: 3rem 2.25rem 2.25rem 2.25rem;
+				@include flex-dja(row, none, flex-start);
+				& div {
+					align-self: center;
 				}
 			}
 		}
 		&--middle {
-			// margin: 1rem;
 			@include flex-dja(row, flex-start, flex-start);
+			padding: 0 2.25rem;
 			@include mobile {
 				@include flex-dja(column, flex-start, flex-start);
+				padding: 0;
 			}
 		}
 		&--bottom {
-			// margin: 6rem 1rem 1rem 1rem;
+			padding: 0 2.25rem;
+			@include mobile {
+				padding: 1rem;
+				& p {
+					@include mobile-text-style-5;
+					padding: 1rem 0;
+				}
+			}
 			& > img {
 				@include tablet {
 					display: none;
@@ -340,44 +349,86 @@ body {
 				@include desktop {
 					display: none;
 				}
-				// padding-top: 1rem;
 			}
-			// & > img {
-			// width: 17vh;
-			// }
+		}
+	}
+	&__heading {
+		&--title {
+			@include desktop-text-style-2;
+			display: flex;
+			align-items: flex-start;
+			@include mobile {
+				@include mobile-text-style-2;
+				padding-bottom: 1rem;
+			}
+		}
+		&--icons {
+			padding-left: 0;
+			& div {
+				margin: 0 2rem;
+			}
+			& div a {
+				margin-right: 1rem;
+			}
+			@include mobile {
+				& div {
+					margin: 0;
+				}
+				display: flex;
+				& div:nth-child(2) {
+					display: none;
+				}
+				& div a {
+					padding: 1rem 2rem 1rem 0;
+				}
+			}
+			& div:nth-child(3) {
+				justify-content: flex-end;
+			}
+		}
+		&--logo {
+			@include mobile {
+				display: none;
+			}
+			margin-left: auto;
 		}
 	}
 	&--contact-info {
 		@include mobile {
+			padding: 1rem;
 			@include flex-dja(column, none, none);
-			& > h2,
+			& > h2 {
+				@include mobile-text-style-3;
+			}
 			& > h3 {
+				@include mobile-text-style-5;
 				// margin: 1rem;
+				padding-top: 1rem;
 			}
 		}
-		@include tablet {
-			@include flex-dja(column, none, none);
-			& > h2,
-			& > h3 {
-				// margin: 1rem;
-			}
+		padding-right: 2.25rem;
+		@include flex-dja(column, none, none);
+		& > h2 {
+			@include desktop-text-style-3;
+			padding-bottom: 1rem;
+		}
+		& > h3 {
+			@include desktop-text-style-5;
+			padding-bottom: 1rem;
 		}
 	}
 }
 
 .logo {
 	@include mobile {
-		// margin-top: 1rem;
 		height: 20px;
 		width: 120px;
 	}
 	@include tablet {
-		// height: 1.25rem;
+		height: 1.25rem;
 		width: 7.5rem;
-		// margin: 1rem;
 	}
 	@include desktop {
-		// margin: 1rem;
 		height: 1.25rem;
 		width: 7.5rem;
 	}
@@ -386,13 +437,7 @@ body {
 	width: 100%;
 	height: auto;
 	// padding: 0;
-	@include desktop {
-		// margin: 1rem;
-	}
-	@include tablet {
-		// margin: 1rem;
-	}
 	@include mobile {
-		// margin: 1rem;
+		padding-bottom: 1rem;
 	}
 }
