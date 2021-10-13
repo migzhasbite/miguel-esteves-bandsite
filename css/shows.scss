@@ -1,0 +1,156 @@
+@use "./partials/colors" as *;
+@use "./partials/mixin" as *;
+@use "./partials/typography" as *;
+@use "./partials/variables" as *;
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+.header {
+	color: $color-white;
+	background-color: $color-bandsite-black;
+	width: 100%;
+	border-bottom: 1px solid $color-mercury;
+	@include mobile {
+		@include flex-dja(column, center, center);
+		padding-top: 1rem;
+		text-align: center;
+	}
+	@include tablet {
+		@include flex-dja(row, flex-start, center);
+		padding: 3rem 2.25rem 2.25rem 2.25rem;
+	}
+	@include desktop {
+		@include flex-dja(row, flex-start, center);
+		padding: 3rem 2.25rem 2.25rem 2.25rem;
+	}
+
+	& a {
+		color: $color-white;
+		text-decoration: none;
+	}
+}
+.navbar {
+	width: 100%;
+	&--list {
+		@include flex-dja(row, flex-start, center);
+		list-style: none;
+		@include tablet {
+			padding: 0 2.25rem;
+		}
+		@include desktop {
+			padding: 2.25rem;
+		}
+		& > li {
+			@include mobile {
+				width: 100%;
+				padding-bottom: 1rem;
+				@include mobile-text-style-6;
+				&:active {
+					@include mobile-text-style-6;
+					width: 100%;
+					padding-bottom: 1rem;
+					border-bottom: 0.1875rem $color-mercury solid;
+				}
+				&:hover {
+					@include mobile-text-style-6;
+					width: 100%;
+					color: $color-white;
+					text-decoration: none;
+					padding-bottom: 1rem;
+					border-bottom: 0.1875rem $color-mercury solid;
+				}
+			}
+			@include tablet {
+				padding: 0 2.25rem;
+				@include desktop-text-style-6;
+				&:active {
+					@include desktop-text-style-6;
+					padding-bottom: 2.25rem;
+					margin-bottom: -2.25rem;
+					border-bottom: 0.1875rem $color-mercury solid;
+				}
+				&:hover {
+					@include desktop-text-style-6;
+					color: $color-white;
+					text-decoration: none;
+					padding-bottom: 2.25rem;
+					margin-bottom: -2.25rem;
+					border-bottom: 0.1875rem $color-mercury solid;
+				}
+			}
+			@include desktop {
+				@include desktop-text-style-6;
+				padding: 0 2.25rem;
+
+				&:active {
+					@include desktop-text-style-6;
+					padding-bottom: 4.25rem;
+					margin-bottom: -4.25rem;
+					border-bottom: 0.1875rem $color-mercury solid;
+				}
+				&:hover {
+					@include desktop-text-style-6;
+					color: $color-white;
+					text-decoration: none;
+					padding-bottom: 4.25rem;
+					margin-bottom: -4.25rem;
+					border-bottom: 0.1875rem $color-mercury solid;
+				}
+			}
+		}
+	}
+}
+.hero {
+	border-bottom: 1px solid $color-mercury;
+	position: relative;
+	background-image: url(../assets/images/hero-shows.jpg);
+	min-width: 25%;
+	z-index: 0;
+	@include mobile {
+		height: 30vh;
+		background-position: left;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	@include tablet {
+		height: 40vh;
+		background-position: left;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	@include desktop {
+		height: 50vh;
+		background-position: left;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	&__heading {
+		position: absolute;
+		color: $color-white;
+		z-index: 2;
+		bottom: 50%;
+		@include mobile {
+			@include mobile-text-style-1;
+			padding: 1rem;
+		}
+		@include tablet {
+			@include desktop-text-style-1;
+			padding: 2.25rem;
+		}
+		@include desktop {
+			@include desktop-text-style-1;
+			padding: 2.25rem;
+		}
+	}
+	&__overlay {
+		position: relative;
+		background-color: $color-bandsite-black;
+		opacity: 50%;
+		z-index: 1;
+		width: 100%;
+		height: 100%;
+	}
+}

@@ -1,0 +1,227 @@
+@font-face {
+  font-family: "Avenir Regular";
+  src: url("../../assets/font/AvenirNextLTPro-Regular.otf");
+}
+@font-face {
+  font-family: "Avenir Bold";
+  src: url("../../assets/font/AvenirNextLTPro-Bold.otf");
+  font-weight: 100;
+}
+@font-face {
+  font-family: "Avenir Demi";
+  src: url("../../assets/font/AvenirNextLTPro-Demi.otf");
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  color: #ffffff;
+  background-color: #323232;
+  width: 100%;
+  border-bottom: 1px solid #e1e1e1;
+}
+@media screen and (max-width: 767px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+    text-align: center;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 3rem 2.25rem 2.25rem 2.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 3rem 2.25rem 2.25rem 2.25rem;
+  }
+}
+.header a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.navbar {
+  width: 100%;
+}
+.navbar--list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  list-style: none;
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .navbar--list {
+    padding: 0 2.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .navbar--list {
+    padding: 2.25rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .navbar--list > li {
+    width: 100%;
+    padding-bottom: 1rem;
+    font-size: 0.625rem;
+    font-family: "Avenir Bold";
+    line-height: 1.25rem;
+  }
+  .navbar--list > li:active {
+    font-size: 0.625rem;
+    font-family: "Avenir Bold";
+    line-height: 1.25rem;
+    width: 100%;
+    padding-bottom: 1rem;
+    border-bottom: 0.1875rem #e1e1e1 solid;
+  }
+  .navbar--list > li:hover {
+    font-size: 0.625rem;
+    font-family: "Avenir Bold";
+    line-height: 1.25rem;
+    width: 100%;
+    color: #ffffff;
+    text-decoration: none;
+    padding-bottom: 1rem;
+    border-bottom: 0.1875rem #e1e1e1 solid;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .navbar--list > li {
+    padding: 0 2.25rem;
+    font-size: 0.75rem;
+    font-family: "Avenir Bold";
+    line-height: 1.25rem;
+  }
+  .navbar--list > li:active {
+    font-size: 0.75rem;
+    font-family: "Avenir Bold";
+    line-height: 1.25rem;
+    padding-bottom: 2.25rem;
+    margin-bottom: -2.25rem;
+    border-bottom: 0.1875rem #e1e1e1 solid;
+  }
+  .navbar--list > li:hover {
+    font-size: 0.75rem;
+    font-family: "Avenir Bold";
+    line-height: 1.25rem;
+    color: #ffffff;
+    text-decoration: none;
+    padding-bottom: 2.25rem;
+    margin-bottom: -2.25rem;
+    border-bottom: 0.1875rem #e1e1e1 solid;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .navbar--list > li {
+    font-size: 0.75rem;
+    font-family: "Avenir Bold";
+    line-height: 1.25rem;
+    padding: 0 2.25rem;
+  }
+  .navbar--list > li:active {
+    font-size: 0.75rem;
+    font-family: "Avenir Bold";
+    line-height: 1.25rem;
+    padding-bottom: 4.25rem;
+    margin-bottom: -4.25rem;
+    border-bottom: 0.1875rem #e1e1e1 solid;
+  }
+  .navbar--list > li:hover {
+    font-size: 0.75rem;
+    font-family: "Avenir Bold";
+    line-height: 1.25rem;
+    color: #ffffff;
+    text-decoration: none;
+    padding-bottom: 4.25rem;
+    margin-bottom: -4.25rem;
+    border-bottom: 0.1875rem #e1e1e1 solid;
+  }
+}
+
+.hero {
+  border-bottom: 1px solid #e1e1e1;
+  position: relative;
+  background-image: url(../assets/images/hero-shows.jpg);
+  min-width: 25%;
+  z-index: 0;
+}
+@media screen and (max-width: 767px) {
+  .hero {
+    height: 30vh;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .hero {
+    height: 40vh;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero {
+    height: 50vh;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+.hero__heading {
+  position: absolute;
+  color: #ffffff;
+  z-index: 2;
+  bottom: 50%;
+}
+@media screen and (max-width: 767px) {
+  .hero__heading {
+    font-size: 1.5rem;
+    font-family: "Avenir Bold";
+    line-height: 2rem;
+    padding: 1rem;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .hero__heading {
+    font-size: 3.75rem;
+    font-family: "Avenir Bold";
+    line-height: 4.25rem;
+    padding: 2.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero__heading {
+    font-size: 3.75rem;
+    font-family: "Avenir Bold";
+    line-height: 4.25rem;
+    padding: 2.25rem;
+  }
+}
+.hero__overlay {
+  position: relative;
+  background-color: #323232;
+  opacity: 50%;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}/*# sourceMappingURL=shows.css.map */

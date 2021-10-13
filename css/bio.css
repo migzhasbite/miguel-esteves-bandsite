@@ -294,6 +294,9 @@
   align-items: flex-start;
   flex-wrap: wrap;
 }
+.musicians__div--notable-quote div img {
+  min-width: auto;
+}
 @media screen and (max-width: 767px) {
   .musicians__div--notable-quote h2 {
     font-size: 0.875rem;
@@ -636,10 +639,18 @@
 
 .image {
   width: 100%;
-  height: auto;
+  min-height: 50%;
+  max-height: 75%;
 }
 @media screen and (max-width: 767px) {
   .image {
     padding-bottom: 1rem;
   }
+}
+
+.comments {
+  border: 1px #e1e1e1 solid;
+}
+.comments--single {
+  min-height: 5rem;
 }/*# sourceMappingURL=bio.css.map */
