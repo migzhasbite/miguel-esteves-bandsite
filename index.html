@@ -135,10 +135,42 @@
 				</div>
 			</div>
 		</section>
-		<section class="comments" id="comments"></section>
+		<section class="comments" id="comments">
+			<h2 class="comments__heading">Join the Conversation</h2>
+			<div class="comments__container">
+				<div class="comments__container--left">
+					<figure class="comments__avatar" alt="user photo"></figure>
+				</div>
+				<div class="comments__container--right">
+					<form action="#" id="comments--form">
+						<label for="name" class="comments__form--heading">NAME</label>
+						<input
+							type="text"
+							name="userName"
+							id="userName"
+							placeholder="Enter your name"
+						/>
+
+						<label for="comments" class="comments__form--heading"
+							>COMMENT</label
+						>
+						<textarea
+							name="userComment"
+							id="userComment"
+							placeholder="Add a new comment"
+							rows="5"
+						></textarea>
+
+						<button type="submit" class="comments__button">COMMENT</button>
+					</form>
+				</div>
+			</div>
+		</section>
+		<section class="comments--display">
+			<!-- <div class="comments__container--display" id="comments--display"></div> -->
+		</section>
 		<footer id="footer" class="footer">
 			<div class="footer__container--top">
-				<!-- <div style="display: flex;"> -->
 				<div>
 					<h1 class="footer__heading--title">Get in Touch</h1>
 				</div>
