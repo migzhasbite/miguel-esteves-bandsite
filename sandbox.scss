@@ -1,0 +1,101 @@
+@use "./css/partials/colors" as *;
+@use "./css/partials/mixin" as *;
+@use "./css/partials/typography" as *;
+@use "./css/partials/variables" as *;
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+.form {
+	&__heading {
+		@include mobile {
+			@include mobile-text-style-3;
+		}
+		@include tablet {
+			@include desktop-text-style-3;
+		}
+		@include desktop {
+		}
+	}
+	&__content {
+		display: flex;
+		flex-direction: column;
+		&--heading {
+			color: $color-silver;
+			@include desktop-text-style-6;
+			@include mobile {
+				@include mobile-text-style-6;
+			}
+		}
+		&--input {
+			@include desktop-text-style-6;
+			border-radius: 5px;
+			resize: none;
+			@include mobile {
+				@include mobile-text-style-6;
+			}
+		}
+	}
+	&__button {
+		background-color: $color-bandsite-black;
+		border: none;
+		color: $color-white;
+		padding: 10px 20px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		margin: 4px 2px;
+		cursor: pointer;
+		border-radius: 5px;
+	}
+	&__container {
+		display: flex;
+		&--left {
+			border-radius: 50%;
+			background-image: url(./assets/images/Mohan-muruge.jpg);
+			background-position: left;
+			background-size: cover;
+			height: 50px;
+			width: 50px;
+			margin: 1rem;
+		}
+		&--right {
+			display: flex;
+			flex-direction: column;
+			// flex-grow: 1;
+			width: 50%;
+		}
+	}
+}
+
+.comments {
+	&__container {
+		display: flex;
+		@include mobile {
+			width: 80%;
+		}
+		@include tablet {
+			width: 65%;
+		}
+		@include desktop {
+			width: 40%;
+		}
+		&--avatar-wrapper {
+			@include flex-dja(row, flex-start, flex-start);
+			border-bottom: 2px solid #fafafa;
+			padding: 1.5rem 0;
+			background-color: $color-silver;
+			border-radius: 50%;
+			height: 50px;
+			width: 50px;
+		}
+		&--content--wrapper {
+		}
+		&--content--heading {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+}

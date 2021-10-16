@@ -135,15 +135,15 @@
 				</div>
 			</div>
 		</section>
-		<section class="comments" id="comments">
-			<h2 class="comments__heading">Join the Conversation</h2>
-			<div class="comments__container">
-				<div class="comments__container--left">
-					<figure class="comments__avatar" alt="user photo"></figure>
+		<section class="form" id="form">
+			<h2 class="form__heading">Join the Conversation</h2>
+			<div class="form__container">
+				<div class="form__container--left">
+					<!-- <figure class="form__avatar" alt="user photo"></figure> -->
 				</div>
-				<div class="comments__container--right">
-					<form action="#" id="comments--form">
-						<label for="name" class="comments__form--heading">NAME</label>
+				<div class="form__container--right">
+					<form action="#" class="form__content">
+						<label for="userName" class="form__content--heading">NAME</label>
 						<input
 							type="text"
 							name="userName"
@@ -151,7 +151,7 @@
 							placeholder="Enter your name"
 						/>
 
-						<label for="comments" class="comments__form--heading"
+						<label for="userComment" class="form__content--heading"
 							>COMMENT</label
 						>
 						<textarea
@@ -161,12 +161,13 @@
 							rows="5"
 						></textarea>
 
-						<button type="submit" class="comments__button">COMMENT</button>
+						<button type="submit" class="form__button">COMMENT</button>
 					</form>
 				</div>
 			</div>
 		</section>
-		<section class="comments--display">
+		<section class="comments">
+			<div class="comments__container"></div>
 			<!-- <div class="comments__container--display" id="comments--display"></div> -->
 		</section>
 		<footer id="footer" class="footer">
