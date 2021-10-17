@@ -106,72 +106,373 @@
 	}
 }
 .hero {
-	border-bottom: 1px solid $color-mercury;
 	position: relative;
-	background-image: url(../assets/images/hero-shows.jpg);
-	min-width: 25%;
-	z-index: 0;
-	@include mobile {
-		height: 30vh;
-		background-position: left;
-		background-repeat: no-repeat;
-		background-size: cover;
-	}
-	@include tablet {
-		height: 40vh;
-		background-position: left;
-		background-repeat: no-repeat;
-		background-size: cover;
-	}
-	@include desktop {
-		height: 50vh;
-		background-position: left;
-		background-repeat: no-repeat;
-		background-size: cover;
-	}
-	&__heading {
-		position: absolute;
-		color: $color-white;
-		z-index: 2;
-		bottom: 50%;
-		@include mobile {
-			@include mobile-text-style-1;
-			padding: 1rem;
-		}
-		@include tablet {
-			@include desktop-text-style-1;
-			padding: 2.25rem;
-		}
-		@include desktop {
-			@include desktop-text-style-1;
-			padding: 2.25rem;
-		}
-	}
+	width: 100%;
 	&__overlay {
-		position: relative;
+		position: absolute;
 		background-color: $color-bandsite-black;
 		opacity: 50%;
 		z-index: 1;
 		width: 100%;
 		height: 100%;
 	}
+	&__title {
+		position: relative;
+		z-index: 2;
+		color: $color-white;
+		@include mobile {
+			@include mobile-text-style-3;
+			padding: 1rem;
+			padding-bottom: 0;
+		}
+		@include tablet {
+			@include desktop-text-style-3;
+			padding: 2.5rem;
+			padding-bottom: 0;
+		}
+		@include desktop {
+			@include desktop-text-style-3;
+			padding: 2.5rem;
+			padding-bottom: 0;
+		}
+	}
+	&__container {
+		z-index: 2;
+		display: flex;
+		@include mobile {
+			flex-direction: column;
+			height: 100%;
+			width: 75%;
+			padding: 1rem;
+		}
+		@include tablet {
+			flex-direction: column;
+		}
+		@include desktop {
+			flex-direction: row;
+		}
+
+		&--iframe {
+			padding: 1rem 0;
+			position: relative;
+			z-index: 2;
+			width: 25rem;
+		}
+		&--soundcloud {
+			height: 10rem;
+			border-radius: 10px;
+		}
+		&--bottom {
+			display: flex;
+			@include mobile {
+				flex-direction: column;
+				padding: 1rem;
+			}
+			@include tablet {
+				flex-direction: column;
+				padding: 2.5rem;
+			}
+			@include desktop {
+				padding: 2.5rem;
+				justify-content: space-between;
+			}
+		}
+	}
+	&__subtitle {
+		position: relative;
+		z-index: 2;
+		color: $color-white;
+		@include mobile {
+			@include mobile-text-style-1;
+			width: 35%;
+		}
+		@include tablet {
+			@include desktop-text-style-1;
+			width: 80%;
+		}
+		@include desktop {
+			@include desktop-text-style-1;
+			width: 50%;
+		}
+	}
+	&__wrapper {
+		position: relative;
+		background-image: url("../assets/images/hero-shows.jpg");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		@include mobile {
+			height: 50vh;
+		}
+		@include tablet {
+			height: 70vh;
+		}
+		@include desktop {
+			height: 75vh;
+		}
+	}
+}
+
+.footer {
+	border-bottom: 1px solid $color-mercury;
+	position: relative;
+	color: $color-white;
+	background-color: $color-bandsite-black;
+	width: 100%;
+	&__container {
+		&--top {
+			@include mobile {
+				padding: 1.5rem 1rem;
+				@include flex-dja(column, flex-start, flex-start);
+			}
+			@include tablet {
+				padding: 3rem 2.25rem 2.25rem 2.25rem;
+				@include flex-dja(row, none, flex-start);
+				& div {
+					align-self: center;
+				}
+			}
+			@include desktop {
+				padding: 3rem 2.25rem 2.25rem 2.25rem;
+				@include flex-dja(row, none, flex-start);
+				& div {
+					align-self: center;
+				}
+			}
+		}
+		&--middle {
+			@include flex-dja(row, flex-start, flex-start);
+			padding: 0 2.25rem;
+			@include mobile {
+				@include flex-dja(column, flex-start, flex-start);
+				padding: 0;
+			}
+		}
+		&--bottom {
+			padding: 0 2.25rem;
+			@include mobile {
+				padding: 1rem;
+				& p {
+					@include mobile-text-style-5;
+					padding: 1rem 0;
+				}
+			}
+			& > img {
+				@include tablet {
+					display: none;
+				}
+				@include desktop {
+					display: none;
+				}
+			}
+		}
+	}
+	&__heading {
+		&--title {
+			@include desktop-text-style-2;
+			display: flex;
+			align-items: flex-start;
+			@include mobile {
+				@include mobile-text-style-2;
+				padding-bottom: 1rem;
+			}
+		}
+		&--icons {
+			padding-left: 0;
+			& div {
+				margin: 0 2rem;
+			}
+			& div a {
+				margin-right: 1rem;
+			}
+			@include mobile {
+				& div {
+					margin: 0;
+				}
+				display: flex;
+				& div:nth-child(2) {
+					display: none;
+				}
+				& div a {
+					padding: 1rem 2rem 1rem 0;
+				}
+			}
+			& div:nth-child(3) {
+				justify-content: flex-end;
+			}
+		}
+		&--logo {
+			@include mobile {
+				display: none;
+			}
+			margin-left: auto;
+		}
+	}
+	&--contact-info {
+		@include mobile {
+			padding: 1rem;
+			@include flex-dja(column, none, none);
+			& > h2 {
+				@include mobile-text-style-3;
+			}
+			& > h3 {
+				@include mobile-text-style-5;
+				padding-top: 1rem;
+			}
+		}
+		padding-right: 2.25rem;
+		@include flex-dja(column, none, none);
+		& > h2 {
+			@include desktop-text-style-3;
+			padding-bottom: 1rem;
+		}
+		& > h3 {
+			@include desktop-text-style-5;
+			padding-bottom: 1rem;
+		}
+	}
 }
 .shows {
+	@include mobile {
+		padding: 1rem;
+	}
+	@include tablet {
+		padding: 2.5rem;
+	}
+	@include desktop {
+		padding: 2.5rem;
+	}
+
+	&__button {
+		display: flex;
+		background-color: $color-bandsite-black;
+		border: none;
+		color: $color-white;
+		padding: 1rem;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		margin: 4px 2px;
+		cursor: pointer;
+		border-radius: 5px;
+		@include mobile {
+			flex-grow: 1;
+			align-self: center;
+		}
+	}
 	@include mobile {
 		&__heading {
 			@include mobile-text-style-1;
 		}
 		&__container {
+			display: flex;
+			@include mobile {
+				flex-direction: column;
+				&--button {
+					display: flex;
+					flex-grow: 1;
+					justify-content: center;
+					padding: 1rem 0;
+				}
+				&--info {
+					@include mobile-text-style-4;
+				}
+				&--heading {
+					color: $color-silver;
+					@include mobile-text-style-4;
+				}
+				border-bottom: 2px silver solid;
+				&--date {
+					padding-top: 1rem;
+					display: flex;
+					flex-direction: column;
+					& p:nth-child(2) {
+						font-family: "Avenir Demi";
+					}
+				}
+				&--venue {
+					padding-top: 1rem;
+					display: flex;
+					flex-direction: column;
+				}
+				&--location {
+					padding-top: 1rem;
+					display: flex;
+					flex-direction: column;
+				}
+			}
+		}
+	}
+	@include tablet {
+		&__heading {
+			@include desktop-text-style-1;
+		}
+		&__container {
+			@include flex-dja(row, space-between, center);
+			padding: 1rem 0;
+			&--info {
+				@include desktop-text-style-4;
+			}
+			&--heading {
+				color: $color-silver;
+				@include desktop-text-style-4;
+			}
 			border-bottom: 2px silver solid;
 			&--date {
+				width: 25%;
+				padding-top: 1rem;
 				display: flex;
 				flex-direction: column;
+				& p:nth-child(2) {
+					font-family: "Avenir Demi";
+				}
 			}
 			&--venue {
+				width: 20%;
+				padding-top: 1rem;
 				display: flex;
 				flex-direction: column;
 			}
 			&--location {
+				padding-top: 1rem;
+				display: flex;
+				flex-direction: column;
+			}
+		}
+	}
+	@include desktop {
+		&__heading {
+			display: block;
+			@include desktop-text-style-1;
+		}
+		&__container {
+			@include flex-dja(row, space-between, center);
+			padding: 1rem 0;
+			&--info {
+				@include desktop-text-style-4;
+			}
+			&--heading {
+				color: $color-silver;
+				@include desktop-text-style-4;
+			}
+			border-bottom: 2px silver solid;
+			&--date {
+				width: 25%;
+				padding-top: 1rem;
+				display: flex;
+				flex-direction: column;
+				& p:nth-child(2) {
+					font-family: "Avenir Demi";
+				}
+			}
+			&--venue {
+				width: 20%;
+				padding-top: 1rem;
+				display: flex;
+				flex-direction: column;
+			}
+			&--location {
+				padding-top: 1rem;
 				display: flex;
 				flex-direction: column;
 			}

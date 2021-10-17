@@ -8,94 +8,150 @@
 	padding: 0;
 	margin: 0;
 }
-.form {
-	&__heading {
-		@include mobile {
-			@include mobile-text-style-3;
-		}
-		@include tablet {
-			@include desktop-text-style-3;
-		}
-		@include desktop {
-		}
+.shows {
+	@include mobile {
+		padding: 1rem;
 	}
-	&__content {
-		display: flex;
-		flex-direction: column;
-		&--heading {
-			color: $color-silver;
-			@include desktop-text-style-6;
-			@include mobile {
-				@include mobile-text-style-6;
-			}
-		}
-		&--input {
-			@include desktop-text-style-6;
-			border-radius: 5px;
-			resize: none;
-			@include mobile {
-				@include mobile-text-style-6;
-			}
-		}
+	@include tablet {
+		padding: 2.5rem;
 	}
+	@include desktop {
+		padding: 2.5rem;
+	}
+
 	&__button {
+		display: flex;
 		background-color: $color-bandsite-black;
 		border: none;
 		color: $color-white;
-		padding: 10px 20px;
+		padding: 1rem;
 		text-align: center;
 		text-decoration: none;
 		display: inline-block;
 		margin: 4px 2px;
 		cursor: pointer;
 		border-radius: 5px;
-	}
-	&__container {
-		display: flex;
-		&--left {
-			border-radius: 50%;
-			background-image: url(./assets/images/Mohan-muruge.jpg);
-			background-position: left;
-			background-size: cover;
-			height: 50px;
-			width: 50px;
-			margin: 1rem;
-		}
-		&--right {
-			display: flex;
-			flex-direction: column;
-			// flex-grow: 1;
-			width: 50%;
-		}
-	}
-}
-
-.comments {
-	&__container {
-		display: flex;
 		@include mobile {
-			width: 80%;
+			flex-grow: 1;
+			align-self: center;
 		}
-		@include tablet {
-			width: 65%;
+	}
+	@include mobile {
+		&__heading {
+			@include mobile-text-style-1;
 		}
-		@include desktop {
-			width: 40%;
-		}
-		&--avatar-wrapper {
-			@include flex-dja(row, flex-start, flex-start);
-			border-bottom: 2px solid #fafafa;
-			padding: 1.5rem 0;
-			background-color: $color-silver;
-			border-radius: 50%;
-			height: 50px;
-			width: 50px;
-		}
-		&--content--wrapper {
-		}
-		&--content--heading {
+		&__container {
 			display: flex;
-			justify-content: space-between;
+			@include mobile {
+				flex-direction: column;
+				&--button {
+					display: flex;
+					flex-grow: 1;
+					justify-content: center;
+					padding: 1rem 0;
+				}
+				&--info {
+					@include mobile-text-style-4;
+				}
+				&--heading {
+					color: $color-silver;
+					@include mobile-text-style-4;
+				}
+				border-bottom: 2px silver solid;
+				&--date {
+					padding-top: 1rem;
+					display: flex;
+					flex-direction: column;
+					& p:nth-child(2) {
+						font-family: "Avenir Demi";
+					}
+				}
+				&--venue {
+					padding-top: 1rem;
+					display: flex;
+					flex-direction: column;
+				}
+				&--location {
+					padding-top: 1rem;
+					display: flex;
+					flex-direction: column;
+				}
+			}
+		}
+	}
+	@include tablet {
+		&__heading {
+			@include desktop-text-style-1;
+		}
+		&__container {
+			@include flex-dja(row, space-between, center);
+			padding: 1rem 0;
+			&--info {
+				@include desktop-text-style-4;
+			}
+			&--heading {
+				color: $color-silver;
+				@include desktop-text-style-4;
+			}
+			border-bottom: 2px silver solid;
+			&--date {
+				width: 25%;
+				padding-top: 1rem;
+				display: flex;
+				flex-direction: column;
+				& p:nth-child(2) {
+					font-family: "Avenir Demi";
+				}
+			}
+			&--venue {
+				width: 20%;
+				padding-top: 1rem;
+				display: flex;
+				flex-direction: column;
+			}
+			&--location {
+				padding-top: 1rem;
+				display: flex;
+				flex-direction: column;
+			}
+		}
+	}
+	@include desktop {
+		&__heading {
+			display: block;
+			@include desktop-text-style-1;
+		}
+		&__container {
+			@include flex-dja(row, space-between, center);
+			padding: 1rem 0;
+			&--info {
+				@include desktop-text-style-4;
+			}
+			&--heading {
+				color: $color-silver;
+				@include desktop-text-style-4;
+			}
+			border-bottom: 2px silver solid;
+			&--date {
+				width: 25%;
+				padding-top: 1rem;
+				display: flex;
+				flex-direction: column;
+				& p:nth-child(2) {
+					font-family: "Avenir Demi";
+				}
+			}
+			&--venue {
+				width: 20%;
+				padding-top: 1rem;
+				display: flex;
+				flex-direction: column;
+			}
+			&--location {
+				padding-top: 1rem;
+				display: flex;
+				flex-direction: column;
+			}
 		}
 	}
 }

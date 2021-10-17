@@ -98,7 +98,7 @@ for (let i = 0; i < showsArr.length; i++) {
 	showsContainer.appendChild(buttonElWrapper);
 
 	const buttonEl = document.createElement("button");
-	buttonEl.classList.add("button");
+	buttonEl.classList.add("shows__button");
 	buttonElWrapper.appendChild(buttonEl);
 	buttonEl.innerText = "BUY TICKETS";
 }
