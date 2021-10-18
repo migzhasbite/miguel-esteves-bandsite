@@ -1,17 +1,3 @@
-// You must have a function called displayComment() that
-// takes in one comment object as a parameter and displays
-// it on the page using JavaScript DOM manipulation.
-//
-//That submits using the addEventListener
-// Prevents the page from reloading when submitting a new comment
-// Constructs a new comment object
-// Pushes a new comment object to an array of comments
-// Clears all comments from the page
-// Re-renders to the page all comments from the comment array
-// Clears the input fields after submitting a new comment
-
-//data provided on the copydeck as an array of objects
-
 const commentsArr = [
 	{
 		name: "Connor Walton",
@@ -83,10 +69,11 @@ const displayComments = () => {
 
 //upon submission
 const formEl = document.querySelector(".form__content");
+displayComments();
 
 formEl.addEventListener("submit", (event) => {
 	event.preventDefault();
-	commentsSection.innerText = "";
+	commentsSection.innerHTML = "";
 	const userName = event.target.userName.value;
 	const userDate = new Date().toLocaleDateString("en-US");
 	const userComment = event.target.userComment.value;
@@ -97,11 +84,6 @@ formEl.addEventListener("submit", (event) => {
 		content: userComment,
 	};
 	commentsArr.unshift(newComment);
-	commentsArr.forEach((i) => {
-		console.log(i);
-		displayComments(i);
-	});
+	displayComments();
 	formEl.reset();
 });
-
-displayComments();

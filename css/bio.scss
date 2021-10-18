@@ -446,11 +446,15 @@
 	&__heading {
 		@include mobile {
 			@include mobile-text-style-2;
+			padding: 1rem;
 		}
 		@include tablet {
 			@include desktop-text-style-2;
+			padding: 2.5rem;
 		}
 		@include desktop {
+			@include desktop-text-style-2;
+			padding: 2.5rem;
 		}
 	}
 	&__content {
@@ -486,6 +490,12 @@
 	}
 	&__container {
 		display: flex;
+		@include tablet {
+			justify-content: center;
+		}
+		@include desktop {
+			justify-content: center;
+		}
 		&--left {
 			background-image: url("../assets/images/Mohan-muruge.jpg");
 			background-size: cover;
@@ -506,6 +516,16 @@
 	}
 }
 .comments {
+	display: flex;
+	flex-direction: column;
+	@include tablet {
+		justify-content: center;
+		align-items: center;
+	}
+	@include desktop {
+		justify-content: center;
+		align-items: center;
+	}
 	&__container {
 		display: flex;
 		border-bottom: 1px $color-silver solid;
@@ -519,6 +539,7 @@
 			padding: 1.5rem;
 		}
 		@include desktop {
+			justify-content: center;
 			width: 40%;
 			padding: 2.5rem;
 		}
@@ -538,6 +559,10 @@
 			&--heading {
 				display: flex;
 				justify-content: space-between;
+				@include desktop {
+					min-width: 38vh;
+					flex-wrap: wrap;
+				}
 			}
 			&-name {
 				@include mobile {

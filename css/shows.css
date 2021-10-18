@@ -307,12 +307,29 @@
   }
 }
 
+@media screen and (max-width: 767px) {
+  .logo {
+    height: 20px;
+    width: 120px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .logo {
+    height: 1.25rem;
+    width: 7.5rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .logo {
+    height: 1.25rem;
+    width: 7.5rem;
+  }
+}
+
 .footer {
-  border-bottom: 1px solid #e1e1e1;
   position: relative;
   color: #ffffff;
   background-color: #323232;
-  width: 100%;
 }
 @media screen and (max-width: 767px) {
   .footer__container--top {
@@ -378,12 +395,12 @@
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-  .footer__container--bottom > img {
+  .footer__container--bottom > a > img {
     display: none;
   }
 }
 @media screen and (min-width: 1280px) {
-  .footer__container--bottom > img {
+  .footer__container--bottom > a > img {
     display: none;
   }
 }
@@ -442,6 +459,10 @@
   flex-direction: column;
   justify-content: none;
   align-items: none;
+}
+.footer--contact-info:last-child {
+  text-decoration: none;
+  color: #ffffff;
 }
 @media screen and (max-width: 767px) {
   .footer--contact-info {
@@ -563,9 +584,9 @@
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .shows__heading {
-    font-size: 3.75rem;
+    font-size: 2.25rem;
     font-family: "Avenir Bold";
-    line-height: 4.25rem;
+    line-height: 2.75rem;
   }
   .shows__container {
     display: flex;
@@ -610,9 +631,9 @@
 @media screen and (min-width: 1280px) {
   .shows__heading {
     display: block;
-    font-size: 3.75rem;
+    font-size: 2.25rem;
     font-family: "Avenir Bold";
-    line-height: 4.25rem;
+    line-height: 2.75rem;
   }
   .shows__container {
     display: flex;

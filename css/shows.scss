@@ -212,13 +212,25 @@
 		}
 	}
 }
-
+.logo {
+	@include mobile {
+		height: 20px;
+		width: 120px;
+	}
+	@include tablet {
+		height: 1.25rem;
+		width: 7.5rem;
+	}
+	@include desktop {
+		height: 1.25rem;
+		width: 7.5rem;
+	}
+}
 .footer {
-	border-bottom: 1px solid $color-mercury;
 	position: relative;
 	color: $color-white;
 	background-color: $color-bandsite-black;
-	width: 100%;
+	// width: 100%;
 	&__container {
 		&--top {
 			@include mobile {
@@ -257,7 +269,7 @@
 					padding: 1rem 0;
 				}
 			}
-			& > img {
+			& > a > img {
 				@include tablet {
 					display: none;
 				}
@@ -309,6 +321,10 @@
 		}
 	}
 	&--contact-info {
+		&:last-child {
+			text-decoration: none;
+			color: $color-white;
+		}
 		@include mobile {
 			padding: 1rem;
 			@include flex-dja(column, none, none);
@@ -405,7 +421,7 @@
 	}
 	@include tablet {
 		&__heading {
-			@include desktop-text-style-1;
+			@include desktop-text-style-2;
 		}
 		&__container {
 			@include flex-dja(row, space-between, center);
@@ -443,7 +459,7 @@
 	@include desktop {
 		&__heading {
 			display: block;
-			@include desktop-text-style-1;
+			@include desktop-text-style-2;
 		}
 		&__container {
 			@include flex-dja(row, space-between, center);
