@@ -1,7 +1,7 @@
-@use "./colors" as *;
-@use "./mixin" as *;
-@use "./typography" as *;
-@use "./variables" as *;
+@use "../css/partials/colors" as *;
+@use "../css/partials/mixin" as *;
+@use "../css/partials/typography" as *;
+@use "../css/partials/variables" as *;
 
 * {
 	box-sizing: border-box;
@@ -10,13 +10,19 @@
 }
 .navbar {
 	display: flex;
-	background-color: $color-bandsite-black;
-	flex-direction: row;
-	@include desktop-text-style-4;
 	@include mobile {
 		flex-direction: column;
-		@include mobile-text-style-4;
+		background-color: $color-bandsite-black;
+		font-weight: 400;
+		font-size: 10px;
+		line-height: 15px;
 	}
+
+	flex-direction: row;
+	background-color: $color-bandsite-black;
+	font-weight: 400;
+	font-size: 12px;
+	line-height: 15px;
 
 	&__container {
 		display: flex;
@@ -25,14 +31,23 @@
 			padding-top: 1.2rem;
 		}
 		@include tablet {
-			padding: 2rem;
+			padding-left: 2rem;
+			padding-top: 2rem;
+			padding-bottom: 1rem;
 		}
 		@include desktop {
-			padding: 2rem;
+			padding-top: 2rem;
 			padding-left: 7rem;
+			padding-bottom: 2rem;
 		}
 	}
-
+	@include tablet {
+		display: flex;
+		background-color: $color-bandsite-black;
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 15px;
+	}
 	&__list {
 		@include mobile {
 			display: flex;
@@ -64,6 +79,9 @@
 			width: 100%;
 		}
 
+		&--selected {
+			border-bottom: 3px solid $color-mercury;
+		}
 		&:hover {
 			border-bottom: 3px solid $color-mercury;
 		}
@@ -74,7 +92,4 @@
 	display: flex;
 	height: 20px;
 	width: 120px;
-}
-.current {
-	border-bottom: 3px solid $color-mercury;
 }

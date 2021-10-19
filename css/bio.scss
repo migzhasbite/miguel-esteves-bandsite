@@ -1,109 +1,12 @@
-//TODO change filename to bio.scss
-
 @use "./partials/colors" as *;
 @use "./partials/mixin" as *;
 @use "./partials/typography" as *;
 @use "./partials/variables" as *;
-// @use "./partials/keyframes" as *;
+@import "./partials/globals";
 * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
-}
-.header {
-	color: $color-white;
-	background-color: $color-bandsite-black;
-	width: 100%;
-	border-bottom: 1px solid $color-mercury;
-	@include mobile {
-		@include flex-dja(column, center, center);
-		padding-top: 1rem;
-		text-align: center;
-	}
-	@include tablet {
-		@include flex-dja(row, flex-start, center);
-		padding: 3rem 2.25rem 2.25rem 2.25rem;
-	}
-	@include desktop {
-		@include flex-dja(row, flex-start, center);
-		padding: 3rem 2.25rem 2.25rem 2.25rem;
-	}
-
-	& a {
-		color: $color-white;
-		text-decoration: none;
-	}
-}
-.navbar {
-	width: 100%;
-	&--list {
-		@include flex-dja(row, flex-start, center);
-		list-style: none;
-		@include tablet {
-			padding: 0 2.25rem;
-		}
-		@include desktop {
-			padding: 2.25rem;
-		}
-		& > li {
-			@include mobile {
-				width: 100%;
-				padding-bottom: 1rem;
-				@include mobile-text-style-6;
-				&:active {
-					@include mobile-text-style-6;
-					width: 100%;
-					padding-bottom: 1rem;
-					border-bottom: 0.1875rem $color-mercury solid;
-				}
-				&:hover {
-					@include mobile-text-style-6;
-					width: 100%;
-					color: $color-white;
-					text-decoration: none;
-					padding-bottom: 1rem;
-					border-bottom: 0.1875rem $color-mercury solid;
-				}
-			}
-			@include tablet {
-				padding: 0 2.25rem;
-				@include desktop-text-style-6;
-				&:active {
-					@include desktop-text-style-6;
-					padding-bottom: 2.25rem;
-					margin-bottom: -2.25rem;
-					border-bottom: 0.1875rem $color-mercury solid;
-				}
-				&:hover {
-					@include desktop-text-style-6;
-					color: $color-white;
-					text-decoration: none;
-					padding-bottom: 2.25rem;
-					margin-bottom: -2.25rem;
-					border-bottom: 0.1875rem $color-mercury solid;
-				}
-			}
-			@include desktop {
-				@include desktop-text-style-6;
-				padding: 0 2.25rem;
-
-				&:active {
-					@include desktop-text-style-6;
-					padding-bottom: 4.25rem;
-					margin-bottom: -4.25rem;
-					border-bottom: 0.1875rem $color-mercury solid;
-				}
-				&:hover {
-					@include desktop-text-style-6;
-					color: $color-white;
-					text-decoration: none;
-					padding-bottom: 4.25rem;
-					margin-bottom: -4.25rem;
-					border-bottom: 0.1875rem $color-mercury solid;
-				}
-			}
-		}
-	}
 }
 .hero {
 	border-bottom: 1px solid $color-mercury;
