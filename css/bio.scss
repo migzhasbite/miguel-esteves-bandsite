@@ -3,11 +3,7 @@
 @use "./partials/typography" as *;
 @use "./partials/variables" as *;
 @import "./partials/globals";
-* {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
-}
+
 .hero {
 	border-bottom: 1px solid $color-mercury;
 	position: relative;
@@ -323,20 +319,6 @@
 	}
 }
 
-.logo {
-	@include mobile {
-		height: 20px;
-		width: 120px;
-	}
-	@include tablet {
-		height: 1.25rem;
-		width: 7.5rem;
-	}
-	@include desktop {
-		height: 1.25rem;
-		width: 7.5rem;
-	}
-}
 .image {
 	width: 100%;
 	min-height: 50%;

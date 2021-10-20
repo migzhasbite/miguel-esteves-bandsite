@@ -1,20 +1,126 @@
 const sandboxContainer = document.querySelector(".sandbox__container");
-const apiURL = "https://project-1-api.herokuapp.com/";
+
+//point to comments section in HTML
+const commentsSection = document.querySelector(".comments");
+//API values to call
 const apiKey = "?api_key=8e49ef38-f8d2-49ef-b098-a12df8fa3554";
+const apiURL = `https://project-1-api.herokuapp.com/comments${apiKey}`;
 
-axios.post(``);
+// let axiosResponse = axios.get(apiURL);
+console.log(axios);
 
-// const apiURL = "https://anapioficeandfire.com/api/books/";
-const allBooksContainer = document.querySelector(".container");
+axios
+	.get(apiURL)
+	//inspect response in the .then
+	.then((response) => {
+		console.log(response);
+		console.log(response.data);
+		//this will clear pre-existing content in container on the site
+		commentsSection.innerHTML = "";
+		const displayComments = () => {
+			for (let i = 0; i < response.data.length; i++) {
+				//div container
+				const commentsContainer = document.createElement("div");
+				commentsContainer.classList.add("comments__container");
+				commentsSection.appendChild(commentsContainer);
+				//left div
+				const commentsAvatarWrapper = document.createElement("div");
+				commentsAvatarWrapper.classList.add(
+					"comments__container--avatar-wrapper"
+				);
+				commentsContainer.appendChild(commentsAvatarWrapper);
 
-const books = [
-	{ name: "A Game of Thrones", numberOfPages: 694 },
-	{ name: "A Clash of Kings", pages: 768 },
-	{ name: "A Storm of Swords", pages: 992 },
-];
+				const commentsUserAvatar = document.createElement("img");
+				commentsUserAvatar.classList.add("comments__container--user-avatar");
+				commentsAvatarWrapper.appendChild(commentsUserAvatar);
 
-// console.log(books);
+				const commentsContentWrapper = document.createElement("div");
+				commentsContentWrapper.classList.add(
+					"comments__container--content--wrapper"
+				);
+				commentsContainer.appendChild(commentsContentWrapper);
 
+				const commentsContentWrapperHeading = document.createElement("div");
+				commentsContentWrapperHeading.classList.add(
+					"comments__container--content--heading"
+				);
+				commentsContentWrapper.appendChild(commentsContentWrapperHeading);
+
+				const commentsName = document.createElement("p");
+				commentsName.classList.add("comments__container--content-name");
+				commentsContentWrapperHeading.appendChild(commentsName);
+				commentsName.innerText = response.data[i].name;
+
+				const commentsDate = document.createElement("p");
+				commentsDate.classList.add("comments__container--content-date");
+				commentsContentWrapperHeading.appendChild(commentsDate);
+				commentsDate.innerText = response.data[i].timestamp;
+
+				const commentsContent = document.createElement("p");
+				commentsContent.classList.add("comments__container--content-comment");
+				commentsContentWrapper.appendChild(commentsContent);
+				commentsContent.innerText = response.data[i].comment;
+			}
+		};
+		displayComments();
+	})
+	.catch((error) => {
+		console.log(error);
+	});
+
+// upon submission
+const formEl = document.querySelector(".form__content");
+// displayComments();
+
+axios
+	.post(`https://corsanywhere.herokuapp.com/${apiURL}`, {
+		name: event.target.userName.value,
+		comment: "",
+		id: "",
+		likes: "",
+		timestamp: "",
+	});
+})
+.then((response) => {
+	console.log(response);
+	console.log(response.id);
+})
+.catch((error) => {
+	console.log(error);
+});
+
+// formEl.addEventListener("submit", (event) => {
+// 	event.preventDefault();
+// 	commentsSection.innerHTML = "";
+// 	const userName = event.target.userName.value;
+// 	const userDate = new Date().toLocaleDateString("en-US");
+// 	const userComment = event.target.userComment.value;
+// 	console.log(userName);
+
+// 	const newComment = {
+// 		name: userName,
+// 		comment: userComment,
+// 		id: [i].id,
+// 		timestamp: userDate,
+// 	};
+// 	commentsArr.unshift(newComment);
+// 	displayComments();
+// 	formEl.reset();
+// });
+
+// //display comments from API
+
+// function commentsArr(array) {
+// 	for (i = 0; i < array.length; i++) {
+// 		let keyValuePairs = {
+// 			name: array[i].name,
+// 			comment: array[i].comment,
+// 			id: array[i].id,
+// 			likes: "",
+// 			timestamp: array[i].timestamp,
+// 		};
+// 	}
+// }
 // JSON.stringify(argument) will turn a piece of data into a JSON string
 // const stringifiedBooks = JSON.stringify(books);
 // console.log(stringifiedBooks);
@@ -24,54 +130,53 @@ const books = [
 // console.log(parsedBooks);
 
 // axios requests return Promises
-const axiosResponse = axios.get(apiURL);
-console.log(axiosResponse);
 
-axios
-	.get(apiURL)
-	// We can handle the Promises that Axios returns using .then() and .catch()
-	// .then() takes a function as a parameter
-	// Typically this will be an anonymous function. By specifying a paremeter name inside of the anonymous function, we can inspect the response from the axios request
-	.then((result) => {
-		// This will console.log the entire axios response
-		console.log(result);
-		// .data will return just the data (in this case, an array of book objects)
-		console.log(result.data);
-		allBooksContainer.innerHTML = "";
+// console.log(axiosResponse);
 
-		// We can use array methods (.forEach(), .map(), .filter(), etc) to iterate through the data from our API response
-		const content = result.data.forEach((element) => {
-			const singleBookContainer = document.createElement("div");
-			singleBookContainer.classList.add("card");
+// We can handle the Promises that Axios returns using .then() and .catch()
+// .then() takes a function as a parameter
+// Typically this will be an anonymous function. By specifying a paremeter name inside of the anonymous function, we can inspect the response from the axios request
+// .then((result) => {
+// 	// This will console.log the entire axios response
+// 	console.log(result);
+// 	// .data will return just the data (in this case, an array of book objects)
+// 	console.log(result.data);
+// 	allBooksContainer.innerHTML = "";
 
-			const title = document.createElement("h1");
-			title.classList.add("title");
-			title.innerText = `${element.name}`;
+// 	// We can use array methods (.forEach(), .map(), .filter(), etc) to iterate through the data from our API response
+// 	const content = result.data.forEach((element) => {
+// 		const singleBookContainer = document.createElement("div");
+// 		singleBookContainer.classList.add("card");
 
-			const authors = document.createElement("h2");
-			authors.classList.add("authors");
-			authors.innerText = `👱‍♂️ Author/Authors: ${element.authors}`;
+// 		const title = document.createElement("h1");
+// 		title.classList.add("title");
+// 		title.innerText = `${element.name}`;
 
-			const numOfPages = document.createElement("p");
-			numOfPages.classList.add("numOfPages");
-			numOfPages.innerText = `📚 Number of Pages: ${element.numberOfPages}`;
+// 		const authors = document.createElement("h2");
+// 		authors.classList.add("authors");
+// 		authors.innerText = `👱‍♂️ Author/Authors: ${element.authors}`;
 
-			const country = document.createElement("p");
-			country.classList.add("country");
-			country.innerText = element.country;
+// 		const numOfPages = document.createElement("p");
+// 		numOfPages.classList.add("numOfPages");
+// 		numOfPages.innerText = `📚 Number of Pages: ${element.numberOfPages}`;
 
-			const releaseDate = document.createElement("p");
-			releaseDate.classList.add("releaseDate");
-			releaseDate.innerText = `⏰ Release Date: ${element.released}`;
+// 		const country = document.createElement("p");
+// 		country.classList.add("country");
+// 		country.innerText = element.country;
 
-			singleBookContainer.appendChild(title);
-			singleBookContainer.appendChild(authors);
-			singleBookContainer.appendChild(numOfPages);
-			singleBookContainer.appendChild(country);
-			singleBookContainer.appendChild(releaseDate);
-			allBooksContainer.appendChild(singleBookContainer);
-		});
-	})
-	.catch((error) => {
-		console.log(error);
-	});
+// 		const releaseDate = document.createElement("p");
+// 		releaseDate.classList.add("releaseDate");
+// 		releaseDate.innerText = `⏰ Release Date: ${element.released}`;
+
+// 		singleBookContainer.appendChild(title);
+// 		singleBookContainer.appendChild(authors);
+// 		singleBookContainer.appendChild(numOfPages);
+// 		singleBookContainer.appendChild(country);
+// 		singleBookContainer.appendChild(releaseDate);
+// 		allBooksContainer.appendChild(singleBookContainer);
+// 	});
+// })
+// .catch((error) => {
+// 	console.log(error);
+// });}}
+//create function to retrieve inputted data
