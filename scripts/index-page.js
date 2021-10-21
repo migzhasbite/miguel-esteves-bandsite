@@ -10,82 +10,94 @@ const commentsSection = document.querySelector(".comments");
 // let axiosResponse = axios.get(apiURL);
 console.log(axios);
 
-axios
-	.get(apiURL)
-	//inspect response in the .then
-	.then((response) => {
-		console.log(response);
-		console.log(response.data);
-		//this will clear pre-existing content in container on the site
-		commentsSection.innerHTML = "";
-		const displayComments = () => {
-			for (let i = 0; i < response.data.length; i++) {
-				//div container
+function displayComments() {
+	axios
+		.get(apiURL)
+		//inspect response in the .then
+		.then((response) => {
+			console.log(response);
+			console.log(response.data);
+			//this will clear pre-existing content in container on the site
+			commentsSection.innerHTML = "";
+			const populateComments = response.data.forEach((element) => {
+				// for (let i = 0; i < response.data.length; i++) {
+				//create elements
 				const commentsContainer = document.createElement("div");
-				commentsContainer.classList.add("comments__container");
-				commentsSection.appendChild(commentsContainer);
-				//left div
 				const commentsAvatarWrapper = document.createElement("div");
+				const commentsUserAvatar = document.createElement("img");
+				const commentsContentWrapper = document.createElement("div");
+				const commentsContentWrapperHeading = document.createElement("div");
+				const commentsName = document.createElement("p");
+				const commentsDate = document.createElement("p");
+				const dateFormat = new Date(element.timestamp).toLocaleDateString(
+					"en-US"
+				);
+				const commentsContent = document.createElement("p");
+
+				//add class
+				commentsContainer.classList.add("comments__container");
 				commentsAvatarWrapper.classList.add(
 					"comments__container--avatar-wrapper"
 				);
-				commentsContainer.appendChild(commentsAvatarWrapper);
-
-				const commentsUserAvatar = document.createElement("img");
 				commentsUserAvatar.classList.add("comments__container--user-avatar");
-				commentsAvatarWrapper.appendChild(commentsUserAvatar);
-
-				const commentsContentWrapper = document.createElement("div");
 				commentsContentWrapper.classList.add(
 					"comments__container--content--wrapper"
 				);
-				commentsContainer.appendChild(commentsContentWrapper);
-
-				const commentsContentWrapperHeading = document.createElement("div");
 				commentsContentWrapperHeading.classList.add(
 					"comments__container--content--heading"
 				);
-				commentsContentWrapper.appendChild(commentsContentWrapperHeading);
-
-				const commentsName = document.createElement("p");
 				commentsName.classList.add("comments__container--content-name");
-				commentsContentWrapperHeading.appendChild(commentsName);
-				commentsName.innerText = response.data[i].name;
-
-				const commentsDate = document.createElement("p");
 				commentsDate.classList.add("comments__container--content-date");
-				commentsContentWrapperHeading.appendChild(commentsDate);
-				commentsDate.innerText = response.data[i].timestamp;
-
-				const commentsContent = document.createElement("p");
 				commentsContent.classList.add("comments__container--content-comment");
+
+				//append child to parent elements
+				commentsSection.appendChild(commentsContainer);
+				commentsContainer.appendChild(commentsAvatarWrapper);
+				commentsAvatarWrapper.appendChild(commentsUserAvatar);
+				commentsContainer.appendChild(commentsContentWrapper);
+				commentsContentWrapper.appendChild(commentsContentWrapperHeading);
+				commentsContentWrapperHeading.appendChild(commentsName);
+				commentsContentWrapperHeading.appendChild(commentsDate);
 				commentsContentWrapper.appendChild(commentsContent);
-				commentsContent.innerText = response.data[i].comment;
-			}
-		};
-		displayComments();
-	})
-	.catch((error) => {
-		console.log(error);
-	});
+
+				//apply name
+				commentsName.innerText = `${element.name}`;
+				commentsDate.innerText = dateFormat;
+				commentsContent.innerText = `${element.comment}`;
+			});
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+}
 
 // //upon submission
-// const formEl = document.querySelector(".form__content");
-// displayComments();
+const formEl = document.querySelector(".form__content");
+displayComments();
 
-// formEl.addEventListener("submit", (event) => {
-// 	event.preventDefault();
-// 	commentsSection.innerHTML = "";
-// 	const userName = event.target.userName.value;
-// 	const userDate = new Date().toLocaleDateString("en-US");
-// 	const userComment = event.target.userComment.value;
+formEl.addEventListener("submit", (event) => {
+	event.preventDefault();
+	commentsSection.innerHTML = "";
+	const userName = event.target.userName.value;
+	const userComment = event.target.userComment.value;
 
-// 	const newComment = {
-// 		name: userName,
-// 		date: userDate,
-// 		content: userComment,
-// 	};
-// 	commentsArr.unshift(newComment);
-// 	displayComments();
-// 	formEl.reset();
-// });
+	const newComment = {
+		name: userName,
+		content: userComment,
+	};
+
+	axios
+		.post(`https://corsanywhere.herokuapp.com/${apiURL}`, {
+			name: userName,
+
+			comment: userComment,
+		})
+		.then((result) => {
+			console.log(result);
+			displayComments();
+			formEl.reset();
+		})
+		.catch((error) => {
+			console.log(error);
+		});
+});
