@@ -19,52 +19,54 @@ function displayComments() {
 			console.log(response.data);
 			//this will clear pre-existing content in container on the site
 			commentsSection.innerHTML = "";
-			const populateComments = response.data.forEach((element) => {
-				// for (let i = 0; i < response.data.length; i++) {
-				//create elements
-				const commentsContainer = document.createElement("div");
-				const commentsAvatarWrapper = document.createElement("div");
-				const commentsUserAvatar = document.createElement("img");
-				const commentsContentWrapper = document.createElement("div");
-				const commentsContentWrapperHeading = document.createElement("div");
-				const commentsName = document.createElement("p");
-				const commentsDate = document.createElement("p");
-				const dateFormat = new Date(element.timestamp).toLocaleDateString(
-					"en-US"
-				);
-				const commentsContent = document.createElement("p");
+			const populateComments = response.data
+				.sort((comment1, comment2) => comment2.timestamp - comment1.timestamp)
+				.forEach((element) => {
+					// for (let i = 0; i < response.data.length; i++) {
+					//create elements
+					const commentsContainer = document.createElement("div");
+					const commentsAvatarWrapper = document.createElement("div");
+					const commentsUserAvatar = document.createElement("img");
+					const commentsContentWrapper = document.createElement("div");
+					const commentsContentWrapperHeading = document.createElement("div");
+					const commentsName = document.createElement("p");
+					const commentsDate = document.createElement("p");
+					const dateFormat = new Date(element.timestamp).toLocaleDateString(
+						"en-US"
+					);
+					const commentsContent = document.createElement("p");
 
-				//add class
-				commentsContainer.classList.add("comments__container");
-				commentsAvatarWrapper.classList.add(
-					"comments__container--avatar-wrapper"
-				);
-				commentsUserAvatar.classList.add("comments__container--user-avatar");
-				commentsContentWrapper.classList.add(
-					"comments__container--content--wrapper"
-				);
-				commentsContentWrapperHeading.classList.add(
-					"comments__container--content--heading"
-				);
-				commentsName.classList.add("comments__container--content-name");
-				commentsDate.classList.add("comments__container--content-date");
-				commentsContent.classList.add("comments__container--content-comment");
+					//add class
+					commentsContainer.classList.add("comments__container");
+					commentsAvatarWrapper.classList.add(
+						"comments__container--avatar-wrapper"
+					);
+					commentsUserAvatar.classList.add("comments__container--user-avatar");
+					commentsContentWrapper.classList.add(
+						"comments__container--content--wrapper"
+					);
+					commentsContentWrapperHeading.classList.add(
+						"comments__container--content--heading"
+					);
+					commentsName.classList.add("comments__container--content-name");
+					commentsDate.classList.add("comments__container--content-date");
+					commentsContent.classList.add("comments__container--content-comment");
 
-				//append child to parent elements
-				commentsSection.appendChild(commentsContainer);
-				commentsContainer.appendChild(commentsAvatarWrapper);
-				commentsAvatarWrapper.appendChild(commentsUserAvatar);
-				commentsContainer.appendChild(commentsContentWrapper);
-				commentsContentWrapper.appendChild(commentsContentWrapperHeading);
-				commentsContentWrapperHeading.appendChild(commentsName);
-				commentsContentWrapperHeading.appendChild(commentsDate);
-				commentsContentWrapper.appendChild(commentsContent);
+					//append child to parent elements
+					commentsSection.appendChild(commentsContainer);
+					commentsContainer.appendChild(commentsAvatarWrapper);
+					commentsAvatarWrapper.appendChild(commentsUserAvatar);
+					commentsContainer.appendChild(commentsContentWrapper);
+					commentsContentWrapper.appendChild(commentsContentWrapperHeading);
+					commentsContentWrapperHeading.appendChild(commentsName);
+					commentsContentWrapperHeading.appendChild(commentsDate);
+					commentsContentWrapper.appendChild(commentsContent);
 
-				//apply name
-				commentsName.innerText = `${element.name}`;
-				commentsDate.innerText = dateFormat;
-				commentsContent.innerText = `${element.comment}`;
-			});
+					//apply name
+					commentsName.innerText = `${element.name}`;
+					commentsDate.innerText = dateFormat;
+					commentsContent.innerText = `${element.comment}`;
+				});
 		})
 		.catch((error) => {
 			console.log(error);
@@ -87,15 +89,14 @@ formEl.addEventListener("submit", (event) => {
 	};
 
 	axios
-		.post(`https://corsanywhere.herokuapp.com/${apiURL}`, {
+		.post(apiURL, {
 			name: userName,
-
 			comment: userComment,
 		})
 		.then((result) => {
 			console.log(result);
-			displayComments();
 			formEl.reset();
+			displayComments();
 		})
 		.catch((error) => {
 			console.log(error);

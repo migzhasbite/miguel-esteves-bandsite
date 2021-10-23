@@ -9,6 +9,7 @@ showsHeading.classList.add("shows__heading");
 showsSection.appendChild(showsHeading);
 showsHeading.innerText = "Shows";
 
+//retrieve from API
 axios
 	.get(apiURL)
 	.then((response) => {
