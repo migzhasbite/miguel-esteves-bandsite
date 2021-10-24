@@ -11,6 +11,41 @@
   font-family: "Avenir Demi";
   src: url("../../assets/font/AvenirNextLTPro-Demi.otf");
 }
+.soundcloud__container {
+  height: 10rem;
+  width: 15rem;
+}
+.soundcloud__iframe {
+  z-index: 2;
+  position: relative;
+  border-radius: 10px;
+}
+@media screen and (max-width: 767px) {
+  .soundcloud__iframe {
+    height: 100px;
+    padding: 1rem 0;
+    width: 15rem;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .soundcloud__iframe {
+    height: 10rem;
+    width: 25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .soundcloud__iframe {
+    width: 38rem;
+  }
+}
+.soundcloud a {
+  display: none;
+}
+
+.sc-button-cta {
+  display: none;
+}
+
 @font-face {
   font-family: "Avenir Regular";
   src: url("../../assets/font/AvenirNextLTPro-Regular.otf");
@@ -279,7 +314,95 @@
 
 .hero {
   position: relative;
+  background-image: url("../assets/images/hero-shows.jpg");
   width: 100%;
+}
+@media screen and (max-width: 767px) {
+  .hero {
+    height: 33vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .hero {
+    height: 33rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero {
+    height: 36rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+.hero__heading {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  font-weight: 400;
+}
+@media screen and (max-width: 767px) {
+  .hero__heading {
+    font-size: 0.875rem;
+    font-family: "Avenir";
+    line-height: 1.375rem;
+    padding: 1.5rem 0 0 1rem;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .hero__heading {
+    font-size: 1.5rem;
+    font-family: "Avenir";
+    line-height: 2rem;
+    padding: 3rem 0 0 2.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero__heading {
+    font-size: 1.5rem;
+    font-family: "Avenir";
+    line-height: 2rem;
+    padding-left: 7rem;
+  }
+}
+.hero__heading--subtitle {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  font-weight: 600;
+}
+@media screen and (max-width: 767px) {
+  .hero__heading--subtitle {
+    font-size: 1.5rem;
+    font-family: "Avenir";
+    line-height: 2rem;
+    padding: 1rem 0 0 1rem;
+    width: 15rem;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .hero__heading--subtitle {
+    font-size: 3.75rem;
+    font-family: "Avenir";
+    line-height: 4.25rem;
+    padding: 2.25rem 0 0 2.25rem;
+    width: 36rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero__heading--subtitle {
+    font-size: 3.75rem;
+    font-family: "Avenir";
+    line-height: 4.25rem;
+    padding: 2.25rem 0 0 7rem;
+    width: 38rem;
+  }
 }
 .hero__overlay {
   position: absolute;
@@ -289,69 +412,37 @@
   width: 100%;
   height: 100%;
 }
-.hero__title {
-  position: relative;
-  z-index: 2;
-  color: #ffffff;
-}
-@media screen and (max-width: 767px) {
-  .hero__title {
-    font-size: 0.875rem;
-    font-family: "Avenir";
-    line-height: 1.375rem;
-    padding: 1rem;
-    padding-bottom: 0;
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 1279px) {
-  .hero__title {
-    font-size: 1.5rem;
-    font-family: "Avenir";
-    line-height: 2rem;
-    padding: 2.5rem;
-    padding-bottom: 0;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .hero__title {
-    font-size: 1.5rem;
-    font-family: "Avenir";
-    line-height: 2rem;
-    padding: 2.5rem;
-    padding-bottom: 0;
-  }
-}
 .hero__container {
-  z-index: 2;
   display: flex;
-}
-@media screen and (max-width: 767px) {
-  .hero__container {
-    flex-direction: column;
-    height: 100%;
-    width: 75%;
-    padding: 1rem;
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 1279px) {
-  .hero__container {
-    flex-direction: column;
-  }
+  flex-direction: column;
 }
 @media screen and (min-width: 1280px) {
   .hero__container {
     flex-direction: row;
+    height: 100%;
   }
 }
-.hero__container--iframe {
-  padding: 1rem 0;
-  position: relative;
+.hero__container--top {
   z-index: 2;
-  width: 25rem;
+  display: flex;
 }
-.hero__container--soundcloud {
-  height: 10rem;
-  border-radius: 10px;
+@media screen and (max-width: 767px) {
+  .hero__container--top {
+    flex-direction: column;
+    height: 100%;
+    width: 75%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .hero__container--top {
+    flex-direction: column;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .hero__container--top {
+    justify-content: center;
+    flex-direction: column;
+  }
 }
 .hero__container--bottom {
   display: flex;
@@ -359,48 +450,23 @@
 @media screen and (max-width: 767px) {
   .hero__container--bottom {
     flex-direction: column;
-    padding: 1rem;
+    padding: 0 1rem;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .hero__container--bottom {
     flex-direction: column;
-    padding: 2.5rem;
+    padding: 0 2.5rem;
+    padding-top: 3rem;
   }
 }
 @media screen and (min-width: 1280px) {
   .hero__container--bottom {
+    flex-direction: column;
+    margin-top: 2.25rem;
     padding: 2.5rem;
-    justify-content: space-between;
-  }
-}
-.hero__subtitle {
-  position: relative;
-  z-index: 2;
-  color: #ffffff;
-}
-@media screen and (max-width: 767px) {
-  .hero__subtitle {
-    font-size: 1.5rem;
-    font-family: "Avenir";
-    line-height: 2rem;
-    width: 35%;
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 1279px) {
-  .hero__subtitle {
-    font-size: 3.75rem;
-    font-family: "Avenir";
-    line-height: 4.25rem;
-    width: 80%;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .hero__subtitle {
-    font-size: 3.75rem;
-    font-family: "Avenir";
-    line-height: 4.25rem;
-    width: 50%;
+    justify-content: center;
+    width: 100%;
   }
 }
 .hero__wrapper {
@@ -475,7 +541,8 @@
 }
 @media screen and (max-width: 767px) {
   .shows__button {
-    flex-grow: 1;
+    min-width: 15rem;
+    max-width: 25rem;
     align-self: center;
   }
 }

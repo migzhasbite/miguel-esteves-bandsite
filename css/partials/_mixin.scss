@@ -3,17 +3,33 @@
 @use "./variables" as *;
 
 //display mixin's for flex
-@mixin grayscale-transition {
-	&__image {
-		// padding: 0.5rem 1rem;
-		// width: 100%;
-		filter: grayscale(100%);
-		transition: 1s;
-		&:hover {
-			filter: grayscale(50%);
-		}
+@mixin heading__style($font-color) {
+	color: $font-color;
+	@include mobile {
+		@include mobile-text-style-2;
+		padding-bottom: 1rem;
+	}
+	@include tablet {
+		@include desktop-text-style-2;
+		padding-bottom: 2.25rem;
+	}
+	@include desktop {
+		@include desktop-text-style-2;
+		padding-bottom: 2.25rem;
 	}
 }
+@mixin section__padding() {
+	@include mobile {
+		padding: 1.5rem 1rem;
+	}
+	@include tablet {
+		padding: 3rem 2.25rem;
+	}
+	@include desktop {
+		padding: 3rem 7rem;
+	}
+}
+
 @mixin flex-dja($direction, $justify, $align) {
 	display: flex;
 	flex-direction: $direction;

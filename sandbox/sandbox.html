@@ -8,26 +8,41 @@
 		<script src="https://unpkg.com/axios@0.23.0/dist/axios.min.js"></script>
 		<title>Document</title>
 	</head>
-	<body>
-		<form action="#" class="form__content" method="post">
-			<label for="userName" class="form__content--heading">NAME</label>
+	<body>    <div class="form__container">
+		<h2 class="form__title">Join the Conversation</h2>
+		<figure class="form__avatar"></figure>
+  
+		<div class="form__info">
+		  <form id="myForm">
+			<label class="form__name-title" for="username">NAME</label><br />
 			<input
-				type="text"
-				name="userName"
-				id="userName"
-				placeholder="Enter your name"
+			  style="padding-left: 0.5rem"
+			  class="form__comment-name--box"
+			  type="text"
+			  name="name"
+			  placeholder="Enter your name"
 			/>
-
-			<label for="userComment" class="form__content--heading">COMMENT</label>
-			<textarea
-				name="userComment"
-				id="userComment"
-				placeholder="Add a new comment"
-				rows="5"
-			></textarea>
-
-			<button type="submit" class="form__button">COMMENT</button>
-		</form>
+			<br />
+			<div class="form__comment-subcontainer">
+			  <label class="form__comment-title" for="comment-box">COMMENT</label
+			  ><br />
+			  <textarea
+				style="padding: 0.5rem 0 0 0.5rem"
+				class="form__comment-content--box"
+				name="comment"
+				placeholder="Add new commment"
+			  ></textarea
+			  ><br />
+			
+			<button class="form__button" type="submit">COMMENT</button>
+		  </form>
+		</div>
+		</div>
+  
+	   
+		<section class="form-container"></section>
+	  </div>
+  
 		<section class="comments"></section>
 		<section id="sandbox">
 			<div class="sandbox__container"></div>

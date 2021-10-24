@@ -8,220 +8,187 @@
 	padding: 0;
 	margin: 0;
 }
-.navbar {
-	display: flex;
-	@include mobile {
-		flex-direction: column;
-		background-color: $color-bandsite-black;
-		font-weight: 400;
-		font-size: 10px;
-		line-height: 15px;
+.form {
+	&__container {
+		padding: 16px 16px 0 16px;
+		@include tablet {
+			padding: 40px 40px 0 40px;
+		}
 	}
 
-	flex-direction: row;
-	background-color: $color-bandsite-black;
-	font-weight: 400;
-	font-size: 12px;
-	line-height: 15px;
-
-	&__container {
-		display: flex;
-		@include mobile {
-			justify-content: center;
-			padding-top: 1.2rem;
-		}
+	&__title {
+		color: $color-bandsite-black;
 		@include tablet {
-			padding-left: 2rem;
-			padding-top: 2rem;
-			padding-bottom: 1rem;
+			padding-left: 4vw;
+			font-weight: 600;
+		}
+	}
+	&__avatar {
+		height: 35px;
+		width: 35px;
+		background-image: url("../assets/images/Mohan-muruge.jpg");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		border-radius: 50%;
+		position: absolute;
+		margin-top: 2.5rem;
+		@include tablet {
+			height: 45px;
+			width: 45px;
+			margin-left: 4vh;
 		}
 		@include desktop {
-			padding-top: 2rem;
+			margin-left: 14vh;
+		}
+	}
+	&__info {
+		padding-top: 1rem;
+		padding-left: 2.5rem;
+		padding-bottom: 1rem;
+		@include tablet {
+			padding-top: 1rem;
 			padding-left: 7rem;
-			padding-bottom: 2rem;
-		}
-	}
-	@include tablet {
-		display: flex;
-		background-color: $color-bandsite-black;
-		font-weight: 400;
-		font-size: 12px;
-		line-height: 15px;
-	}
-	&__list {
-		@include mobile {
-			display: flex;
-		}
-		list-style: none;
-		display: inline-block;
-		width: 100vw;
-		justify-content: space-around;
-		padding-top: 13px;
-		a {
-			@include mobile {
-				display: flex;
-				justify-content: center;
-				width: 100%;
-				text-decoration: none;
-			}
-			display: inline-block;
-		}
-	}
-	&__link {
-		color: $color-white;
-		width: 100%;
-		width: fit-content;
-		margin: 24px 32px 0;
-		padding-bottom: 32px;
-		@include mobile {
-			text-align: center;
-			padding-bottom: 8px;
-			margin: 0;
-			width: 100%;
-		}
-		&:hover {
-			border-bottom: 3px solid $color-mercury;
-		}
-	}
-}
-
-.bandsite-logo {
-	display: flex;
-	height: 20px;
-	width: 120px;
-}
-.current {
-	border-bottom: 3px solid $color-mercury;
-}
-
-.footer {
-	&__container {
-		position: relative;
-		background-color: $color-bandsite-black;
-		color: $color-white;
-		@include mobile {
-			padding: 1rem;
-			width: 100%;
-			font-family: "Avenir demi";
-			font-size: 24px;
-		}
-		@include tablet {
+			padding-bottom: 1rem;
+			padding-right: 5rem;
 		}
 		@include desktop {
+			padding-left: 16rem;
+			padding-bottom: 1rem;
+			padding-right: 19rem;
 		}
-		&--top {
-			@include mobile {
-				@include flex-dja(column, flex-start, flex-start);
-			}
+	}
+
+	&__name-title {
+		color: $color-mercury;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 22px;
+	}
+
+	&__comment {
+		&-name--box {
+			background-color: $color-alabaster;
+			height: 36px;
+			width: 100%;
+			border-radius: 4px;
+			border: solid $color-mercury 1px;
+			margin-top: 0.3rem;
 			@include tablet {
-				padding: 3rem 2.25rem 2.25rem 2.25rem;
-				@include flex-dja(row, none, flex-start);
-				& div {
-					align-self: center;
-				}
-			}
-			@include desktop {
-				padding: 3rem 2.25rem 2.25rem 2.25rem;
-				@include flex-dja(row, none, flex-start);
-				& div {
-					align-self: center;
-				}
+				height: 60px;
 			}
 		}
-		&--middle {
-			@include flex-dja(row, flex-start, flex-start);
-			padding: 0 2.25rem;
-			@include mobile {
-				@include flex-dja(column, flex-start, flex-start);
-				padding: 0;
-			}
+		&-title {
+			color: $color-mercury;
+			font-weight: 400;
+			font-size: 14px;
+			line-height: 22px;
 		}
-		&--bottom {
-			// padding: 0 2.25rem;
-			@include mobile {
-				// padding: 1rem;
-				& p {
-					@include mobile-text-style-5;
-					padding: 1rem 0;
-				}
-			}
-			& > img {
-				@include tablet {
-					display: none;
-				}
-				@include desktop {
-					display: none;
-				}
-			}
-		}
-	}
-	&__heading {
-		&--title {
-			@include desktop-text-style-2;
-			display: flex;
-			align-items: flex-start;
-			@include mobile {
-				@include mobile-text-style-2;
-				padding-bottom: 1rem;
-			}
-		}
-		&--icons {
-			padding-right: 1rem;
 
-			& div {
-				margin: 0 2rem;
-			}
-			& div a {
-				margin-right: 1rem;
-			}
-			@include mobile {
-				& div {
-					margin: 0;
-				}
-				display: flex;
-				& div:nth-child(2) {
-					display: none;
-				}
-				& div a {
-					padding: 1rem 2rem 1rem 0;
-				}
-			}
-			& div:nth-child(3) {
-				justify-content: flex-end;
-			}
+		&-content--box {
+			margin-top: 0.3rem;
+			background-color: $color-alabaster;
+			height: 100px;
+			width: 100%;
+			border-radius: 4px;
+			border: solid $color-mercury 1px;
 		}
-		&--logo {
-			@include mobile {
-				display: none;
-			}
-			margin-left: auto;
+		&-subcontainer {
+			padding: 1rem 0 1rem 0;
 		}
 	}
-	&--contact-info {
-		@include mobile {
-			// padding: 1rem;
-			@include flex-dja(column, none, none);
-			& > h2 {
-				@include mobile-text-style-3;
-			}
-			& > h3 {
-				@include mobile-text-style-5;
-				padding-top: 1rem;
-			}
-		}
-		padding-right: 2.25rem;
-		@include flex-dja(column, none, none);
-		& > h2 {
-			@include desktop-text-style-3;
-			padding-bottom: 1rem;
-		}
-		& > h3 {
-			@include desktop-text-style-5;
-			padding-bottom: 1rem;
-		}
-	}
-}
 
-.heading {
-	padding-bottom: 1rem;
+	&__section {
+		color: $color-bandsite-black;
+	}
+
+	&__comment-container {
+		position: relative;
+		@include tablet {
+			border-top: solid 1px $color-mercury;
+		}
+	}
+	&__subsection--header {
+		border-top: solid 1px $color-mercury;
+		padding-top: 1rem;
+		display: flex;
+		justify-content: space-between;
+		@include tablet {
+			padding-bottom: 0.5rem;
+		}
+	}
+	&__avatar-blank {
+		position: absolute;
+		height: 35px;
+		width: 35px;
+		background-color: $color-mercury;
+		border-radius: 50%;
+		margin-left: 2vw;
+		@include tablet {
+			margin-bottom: 1.25rem;
+			margin-left: -55px;
+			height: 45px;
+			width: 45px;
+		}
+	}
+	&__user {
+		color: $color-bandsite-black;
+		font-weight: 600;
+		font-size: 13px;
+		line-height: 18px;
+		padding-left: 16vw;
+		@include tablet {
+			padding: 0;
+		}
+	}
+	&__date {
+		color: $color-bandsite-black;
+		font-weight: 400;
+		font-size: 13px;
+		line-height: 18px;
+		color: $color-mercury;
+		// padding-left: 20vw;
+	}
+	&__body {
+		color: $color-bandsite-black;
+		font-weight: 400;
+		font-size: 13px;
+		line-height: 18px;
+		padding: 0.75rem 0 1rem 16vw;
+		border-bottom: solid 1px $color-mercury;
+		@include tablet {
+			padding: 0 0 1rem 0;
+		}
+	}
+
+	&__button {
+		background-color: $color-bandsite-black;
+		color: $color-white;
+		padding: 6px 10px 5px 10px;
+		border-radius: 4%;
+		width: 100%;
+		&:hover {
+			background: $color-bandsite-black;
+		}
+		@include tablet {
+			margin-top: 1rem;
+			width: 7rem;
+			margin-left: 75%;
+		}
+		@include desktop {
+			margin-left: 83%;
+		}
+	}
+
+	&__banner {
+		display: flex;
+	}
+	&-container {
+		@include tablet {
+			padding: 0px 5rem 0 7rem;
+		}
+		@include desktop {
+			padding: 0px 19rem 0 16rem;
+		}
+	}
 }

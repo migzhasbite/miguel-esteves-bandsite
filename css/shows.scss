@@ -2,11 +2,71 @@
 @use "./partials/mixin" as *;
 @use "./partials/typography" as *;
 @use "./partials/variables" as *;
+@use "./partials/soundcloud" as *;
 @import "./partials/globals";
 
 .hero {
 	position: relative;
+	background-image: url("../assets/images/hero-shows.jpg");
 	width: 100%;
+	@include mobile {
+		height: 33vh;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	@include tablet {
+		height: 33rem;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	@include desktop {
+		height: 36rem;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	&__heading {
+		position: relative;
+		z-index: 2;
+		color: $color-white;
+		font-weight: 400;
+		// bottom: 50%;
+		@include mobile {
+			@include mobile-text-style-3;
+			padding: 1.5rem 0 0 1rem;
+		}
+		@include tablet {
+			@include desktop-text-style-3;
+			padding: 3rem 0 0 2.25rem;
+		}
+		@include desktop {
+			@include desktop-text-style-3;
+			padding-left: 7rem;
+		}
+		&--subtitle {
+			position: relative;
+			z-index: 2;
+			color: $color-white;
+			font-weight: 600;
+			@include mobile {
+				@include mobile-text-style-1;
+				padding: 1rem 0 0 1rem;
+				width: 15rem;
+			}
+			@include tablet {
+				@include desktop-text-style-1;
+				padding: 2.25rem 0 0 2.25rem;
+				width: 36rem;
+			}
+			@include desktop {
+				@include desktop-text-style-1;
+				padding: 2.25rem 0 0 7rem;
+				width: 38rem;
+			}
+		}
+	}
 	&__overlay {
 		position: absolute;
 		background-color: $color-bandsite-black;
@@ -15,85 +75,66 @@
 		width: 100%;
 		height: 100%;
 	}
-	&__title {
-		position: relative;
-		z-index: 2;
-		color: $color-white;
-		@include mobile {
-			@include mobile-text-style-3;
-			padding: 1rem;
-			padding-bottom: 0;
-		}
-		@include tablet {
-			@include desktop-text-style-3;
-			padding: 2.5rem;
-			padding-bottom: 0;
-		}
-		@include desktop {
-			@include desktop-text-style-3;
-			padding: 2.5rem;
-			padding-bottom: 0;
-		}
-	}
 	&__container {
-		z-index: 2;
 		display: flex;
-		@include mobile {
-			flex-direction: column;
-			height: 100%;
-			width: 75%;
-			padding: 1rem;
-		}
-		@include tablet {
-			flex-direction: column;
-		}
+		flex-direction: column;
 		@include desktop {
 			flex-direction: row;
+			height: 100%;
 		}
-
-		&--iframe {
-			padding: 1rem 0;
-			position: relative;
+		&--top {
 			z-index: 2;
-			width: 25rem;
-		}
-		&--soundcloud {
-			height: 10rem;
-			border-radius: 10px;
+			display: flex;
+			@include mobile {
+				flex-direction: column;
+				height: 100%;
+				width: 75%;
+			}
+			@include tablet {
+				flex-direction: column;
+			}
+			@include desktop {
+				justify-content: center;
+				flex-direction: column;
+			}
 		}
 		&--bottom {
 			display: flex;
 			@include mobile {
 				flex-direction: column;
-				padding: 1rem;
+				padding: 0 1rem;
 			}
 			@include tablet {
 				flex-direction: column;
-				padding: 2.5rem;
+				padding: 0 2.5rem;
+				padding-top: 3rem;
 			}
 			@include desktop {
+				flex-direction: column;
+				margin-top: 2.25rem;
 				padding: 2.5rem;
-				justify-content: space-between;
+				justify-content: center;
+				width: 100%;
 			}
 		}
 	}
-	&__subtitle {
-		position: relative;
-		z-index: 2;
-		color: $color-white;
-		@include mobile {
-			@include mobile-text-style-1;
-			width: 35%;
-		}
-		@include tablet {
-			@include desktop-text-style-1;
-			width: 80%;
-		}
-		@include desktop {
-			@include desktop-text-style-1;
-			width: 50%;
-		}
-	}
+	// &__subtitle {
+	// 	position: relative;
+	// 	z-index: 2;
+	// 	color: $color-white;
+	// 	@include mobile {
+	// 		@include mobile-text-style-1;
+	// 		width: 35%;
+	// 	}
+	// 	@include tablet {
+	// 		@include desktop-text-style-1;
+	// 		width: 80%;
+	// 	}
+	// 	@include desktop {
+	// 		@include desktop-text-style-1;
+	// 		width: 50%;
+	// 	}
+	// }
 	&__wrapper {
 		position: relative;
 		background-image: url("../assets/images/hero-shows.jpg");
@@ -125,7 +166,6 @@
 		width: 7.5rem;
 	}
 }
-
 .shows {
 	@include mobile {
 		padding: 1rem;
@@ -150,7 +190,9 @@
 		cursor: pointer;
 		border-radius: 5px;
 		@include mobile {
-			flex-grow: 1;
+			// flex-grow: 1;
+			min-width: 15rem;
+			max-width: 25rem;
 			align-self: center;
 		}
 	}

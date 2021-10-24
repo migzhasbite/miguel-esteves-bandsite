@@ -1,0 +1,33 @@
+@use "./mixin" as *;
+
+.soundcloud {
+	&__container {
+		height: 10rem;
+		width: 15rem;
+	}
+	&__iframe {
+		z-index: 2;
+		position: relative;
+		border-radius: 10px;
+		@include mobile {
+			height: 100px;
+			padding: 1rem 0;
+			width: 15rem;
+		}
+		@include tablet {
+			height: 10rem;
+			// padding: 2.25rem 0;
+			width: 25rem;
+		}
+		@include desktop {
+			width: 38rem;
+		}
+	}
+	& a {
+		display: none;
+	}
+}
+
+.sc-button-cta {
+	display: none;
+}
