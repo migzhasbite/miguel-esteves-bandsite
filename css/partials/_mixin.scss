@@ -3,6 +3,17 @@
 @use "./variables" as *;
 
 //display mixin's for flex
+@mixin grayscale-transition {
+	&__image {
+		// padding: 0.5rem 1rem;
+		// width: 100%;
+		filter: grayscale(100%);
+		transition: 1s;
+		&:hover {
+			filter: grayscale(50%);
+		}
+	}
+}
 @mixin flex-dja($direction, $justify, $align) {
 	display: flex;
 	flex-direction: $direction;

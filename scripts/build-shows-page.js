@@ -3,11 +3,10 @@ const apiKey = "?api_key=8e49ef38-f8d2-49ef-b098-a12df8fa3554";
 const apiURL = `https://project-1-api.herokuapp.com/showdates${apiKey}`;
 
 const showsSection = document.querySelector(".shows");
-const showsHeading = document.createElement("h2");
-
-showsHeading.classList.add("shows__heading");
-showsSection.appendChild(showsHeading);
-showsHeading.innerText = "Shows";
+// const showsHeading = document.createElement("h2");
+// showsHeading.classList.add("shows__heading");
+// showsSection.appendChild(showsHeading);
+// showsHeading.innerText = "Shows";
 
 //retrieve from API
 axios
@@ -16,6 +15,11 @@ axios
 		console.log(response);
 		console.log(response.data);
 		showsSection.innerHTML = "";
+
+		const showsHeading = document.createElement("h2");
+		showsHeading.classList.add("shows__heading");
+		showsSection.appendChild(showsHeading);
+		showsHeading.innerText = "Shows";
 
 		const displayShows = response.data.forEach((element) => {
 			//create HTML elements

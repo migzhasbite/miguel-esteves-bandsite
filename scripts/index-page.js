@@ -2,8 +2,6 @@
 const apiKey = "?api_key=8e49ef38-f8d2-49ef-b098-a12df8fa3554";
 const apiURL = `https://project-1-api.herokuapp.com/comments${apiKey}`;
 
-// const commentsArr = axios.get(apiURL);
-
 //point to comments section in HTML
 const commentsSection = document.querySelector(".comments");
 //API values to call

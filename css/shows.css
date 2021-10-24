@@ -58,13 +58,12 @@
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .navbar__container {
-    padding: 2rem;
+    padding: 2.25rem;
   }
 }
 @media screen and (min-width: 1280px) {
   .navbar__container {
-    padding: 2rem;
-    padding-left: 7rem;
+    padding: 2.25rem 2.25rem 2.25rem 7rem;
   }
 }
 .navbar__list {
@@ -113,7 +112,7 @@
 
 .bandsite-logo {
   display: flex;
-  height: 1.25rem;
+  max-height: 1.25rem;
   width: 7.5rem;
 }
 
@@ -622,5 +621,22 @@
     padding-top: 1rem;
     display: flex;
     flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .invisible {
+    display: none;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .invisible {
+    display: none;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .invisible {
+    display: flex;
+    width: 30%;
   }
 }/*# sourceMappingURL=shows.css.map */

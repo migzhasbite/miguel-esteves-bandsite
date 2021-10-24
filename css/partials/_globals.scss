@@ -26,11 +26,10 @@
 			padding-top: 1rem;
 		}
 		@include tablet {
-			padding: 2rem;
+			padding: 2.25rem;
 		}
 		@include desktop {
-			padding: 2rem;
-			padding-left: 7rem;
+			padding: 2.25rem 2.25rem 2.25rem 7rem;
 		}
 	}
 
@@ -73,7 +72,7 @@
 }
 .bandsite-logo {
 	display: flex;
-	height: 1.25rem;
+	max-height: 1.25rem;
 	width: 7.5rem;
 }
 .current {
