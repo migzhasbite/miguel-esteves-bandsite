@@ -32,7 +32,6 @@
 		z-index: 2;
 		color: $color-white;
 		font-weight: 400;
-		// bottom: 50%;
 		@include mobile {
 			@include mobile-text-style-3;
 			padding: 1.5rem 0 0 1rem;
@@ -118,39 +117,6 @@
 			}
 		}
 	}
-	// &__subtitle {
-	// 	position: relative;
-	// 	z-index: 2;
-	// 	color: $color-white;
-	// 	@include mobile {
-	// 		@include mobile-text-style-1;
-	// 		width: 35%;
-	// 	}
-	// 	@include tablet {
-	// 		@include desktop-text-style-1;
-	// 		width: 80%;
-	// 	}
-	// 	@include desktop {
-	// 		@include desktop-text-style-1;
-	// 		width: 50%;
-	// 	}
-	// }
-	&__wrapper {
-		position: relative;
-		background-image: url("../assets/images/hero-shows.jpg");
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center;
-		@include mobile {
-			height: 50vh;
-		}
-		@include tablet {
-			height: 70vh;
-		}
-		@include desktop {
-			height: 75vh;
-		}
-	}
 }
 .logo {
 	@include mobile {
@@ -174,25 +140,27 @@
 		padding: 2.5rem;
 	}
 	@include desktop {
+		display: flex;
+		justify-content: space-around;
 		padding: 2.5rem;
 	}
 
 	&__button {
 		display: flex;
+		height: 40px;
 		background-color: $color-bandsite-black;
 		border: none;
 		color: $color-white;
-		padding: 1rem;
+		padding: 0 2rem;
 		text-align: center;
 		text-decoration: none;
 		display: inline-block;
+		min-width: 150px;
 		margin: 4px 2px;
 		cursor: pointer;
 		border-radius: 5px;
 		@include mobile {
-			// flex-grow: 1;
-			min-width: 15rem;
-			max-width: 25rem;
+			width: 100%;
 			align-self: center;
 		}
 	}
@@ -201,6 +169,12 @@
 			@include mobile-text-style-1;
 		}
 		&__container {
+			&:hover {
+				background-color: $color-alabaster;
+			}
+			&--selected {
+				background-color: $color-mercury;
+			}
 			display: flex;
 			@include mobile {
 				flex-direction: column;
@@ -244,6 +218,13 @@
 			@include desktop-text-style-2;
 		}
 		&__container {
+			&:hover {
+				background-color: $color-alabaster;
+			}
+			&--selected {
+				background-color: $color-mercury;
+			}
+
 			@include flex-dja(row, space-between, center);
 			padding: 1rem 0;
 			&--info {
@@ -278,10 +259,22 @@
 	}
 	@include desktop {
 		&__heading {
+			margin-left: 2rem;
 			display: block;
 			@include desktop-text-style-2;
 		}
 		&__container {
+			&--whole {
+				@include desktop {
+					width: 70%;
+				}
+			}
+			&:hover {
+				background-color: $color-alabaster;
+			}
+			&--selected {
+				background-color: $color-mercury;
+			}
 			@include flex-dja(row, space-between, center);
 			padding: 1rem 0;
 			&--info {
@@ -313,17 +306,5 @@
 				flex-direction: column;
 			}
 		}
-	}
-}
-.invisible {
-	@include mobile {
-		display: none;
-	}
-	@include tablet {
-		display: none;
-	}
-	@include desktop {
-		display: flex;
-		width: 30%;
 	}
 }

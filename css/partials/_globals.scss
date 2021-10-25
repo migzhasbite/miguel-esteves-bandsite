@@ -9,6 +9,7 @@
 	margin: 0;
 	font-family: "Avenir";
 }
+
 .navbar {
 	display: flex;
 	background-color: $color-bandsite-black;
@@ -78,7 +79,6 @@
 .current {
 	border-bottom: 3px solid $color-mercury;
 }
-
 .footer {
 	background-color: $color-bandsite-black;
 	color: $color-white;

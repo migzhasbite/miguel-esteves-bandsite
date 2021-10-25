@@ -1,5 +1,5 @@
 //API values to call
-const apiKey = "?api_key=8e49ef38-f8d2-49ef-b098-a12df8fa3554";
+const apiKey = "?api_key=9dc7097-5a54-453e-aae5-7667c6906bc1";
 const apiURL = `https://project-1-api.herokuapp.com/comments${apiKey}`;
 
 //point to comments section in HTML
@@ -20,7 +20,6 @@ function displayComments() {
 			const populateComments = response.data
 				.sort((comment1, comment2) => comment2.timestamp - comment1.timestamp)
 				.forEach((element) => {
-					// for (let i = 0; i < response.data.length; i++) {
 					//create elements
 					const commentsContainer = document.createElement("div");
 					const commentsAvatarWrapper = document.createElement("div");
@@ -72,7 +71,7 @@ function displayComments() {
 }
 
 // //upon submission
-const formEl = document.querySelector(".form__content");
+const formEl = document.querySelector(".form__wrapper");
 displayComments();
 
 formEl.addEventListener("submit", (event) => {
@@ -81,22 +80,38 @@ formEl.addEventListener("submit", (event) => {
 	const userName = event.target.userName.value;
 	const userComment = event.target.userComment.value;
 
+	const name = document.querySelector(".form__text--name");
+	const content = document.querySelector(".form__text--content");
+
 	const newComment = {
 		name: userName,
 		content: userComment,
 	};
-
-	axios
-		.post(apiURL, {
-			name: userName,
-			comment: userComment,
-		})
-		.then((result) => {
-			console.log(result);
-			formEl.reset();
+	const validateForm = function () {
+		if (userName == "" || userComment == "") {
+			console.log("this works");
+			name.style.border = "1px red solid";
+			content.style.border = "1px red solid";
 			displayComments();
-		})
-		.catch((error) => {
-			console.log(error);
-		});
+		} else {
+			console.log("this works too");
+			name.style.border = "1px $color-mercury solid;";
+			content.style.border = "1px $color-mercury solid;";
+
+			axios
+				.post(apiURL, {
+					name: userName,
+					comment: userComment,
+				})
+				.then((result) => {
+					console.log(result);
+					formEl.reset();
+					displayComments();
+				})
+				.catch((error) => {
+					console.log(error);
+				});
+		}
+	};
+	validateForm();
 });

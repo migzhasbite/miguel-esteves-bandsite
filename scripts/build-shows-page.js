@@ -1,5 +1,5 @@
-//API key and URL
-const apiKey = "?api_key=8e49ef38-f8d2-49ef-b098-a12df8fa3554";
+// //API key and URL
+const apiKey = "?api_key=d9dc7097-5a54-453e-aae5-7667c6906bc1";
 const apiURL = `https://project-1-api.herokuapp.com/showdates${apiKey}`;
 
 const showsSection = document.querySelector(".shows");
@@ -17,15 +17,21 @@ axios
 		showsSection.appendChild(showsHeading);
 		showsHeading.innerText = "Shows";
 
+		const invisibleDiv = document.createElement("div");
+		invisibleDiv.classList.add("invisible");
+		showsSection.appendChild(invisibleDiv);
+
+		const showsContainerWhole = document.createElement("div");
+		showsContainerWhole.classList.add("shows__container--whole");
+		showsSection.appendChild(showsContainerWhole);
+
 		const displayShows = response.data.forEach((element) => {
 			//create HTML elements
 			const showsContainer = document.createElement("div");
 			const showsDateInfo = document.createElement("div");
 			const showsDateHeading = document.createElement("p");
 			const showsDate = document.createElement("p");
-			const dateFormat = new Date(Number(element.date)).toLocaleDateString(
-				"en-US"
-			);
+			const dateFormat = new Date(Number(element.date)).toDateString();
 			const showsVenueInfo = document.createElement("div");
 			const showsVenueHeading = document.createElement("p");
 			const showsVenue = document.createElement("p");
@@ -50,7 +56,7 @@ axios
 			buttonEl.classList.add("shows__button");
 
 			//append child to parent elements
-			showsSection.appendChild(showsContainer);
+			showsContainerWhole.appendChild(showsContainer);
 			showsContainer.appendChild(showsDateInfo);
 			showsDateInfo.appendChild(showsDateHeading);
 			showsDateInfo.appendChild(showsDate);
@@ -73,6 +79,11 @@ axios
 			buttonEl.innerText = "BUY TICKETS";
 
 			buttonEl.setAttribute("onclick", ".location.href='./shows.html';");
+
+			const activeRows = document.querySelector("shows__container");
+			showsContainer.addEventListener("click", (event) => {
+				showsContainer.classList.toggle("shows__container--selected");
+			});
 		});
 	})
 	.catch((error) => {

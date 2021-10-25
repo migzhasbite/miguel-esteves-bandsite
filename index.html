@@ -123,33 +123,33 @@
 				/>
 			</span>
 		</section>
-		<section class="form" id="form">
+		<section class="form">
 			<h2 class="form__heading">Join the Conversation</h2>
 			<div class="form__container">
 				<div class="form__container--left">
 					<figure class="form__avatar"></figure>
 				</div>
+
 				<div class="form__container--right">
-					<form action="#" class="form__content">
-						<label for="userName" class="form__content--heading">NAME</label>
+					<form id="form" class="form__wrapper" name="comment-form">
+						<label class="form__subtitle" for="userName">NAME</label>
 						<input
+							class="form__text--name"
 							type="text"
-							name="userName"
 							id="userName"
+							name="userName"
 							placeholder="Enter your name"
 						/>
-
-						<label for="userComment" class="form__content--heading"
-							>COMMENT</label
-						>
+						<label class="form__subtitle" for="userComment">COMMENT</label>
 						<textarea
-							name="userComment"
+							class="form__text--content"
 							id="userComment"
-							placeholder="Add a new comment"
-							rows="5"
+							name="userComment"
+							placeholder="Add new commment"
 						></textarea>
-
-						<button type="submit" class="form__button">COMMENT</button>
+						<div class="form__button__wrapper">
+							<button class="form__button" type="submit">COMMENT</button>
+						</div>
 					</form>
 				</div>
 			</div>
@@ -249,7 +249,6 @@
 				</p>
 			</article>
 		</footer>
-
 		<script src="./scripts/index-page.js"></script>
 	</body>
 </html>
